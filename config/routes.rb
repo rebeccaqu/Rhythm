@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   root :to => 'users#index'
 
-  resources :users, only: [:new, :create, :show]
+  get 'login' => 'sessions#new', :as => :login
+  post 'logout' => 'sessions#destroy', :as => :logout
+
+  resources :users, only: [:index, :new, :create, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  get 'login' => 'sessions#new', :as => :login
-  post 'logout' => 'sessions#destroy', :as => :logout
 
 
   # The priority is based upon order of creation: first created -> highest priority.

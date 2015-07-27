@@ -8,17 +8,19 @@
 
 User.destroy_all()
 
-U1 = User.create ({
+User.create! ({
   first_name: "Aysha",
   last_name: "Eda",
   email: "Aysha@bitmaker.com",
-  password: "password"
+  password: "password", 
+  password_confirmation: "password"
 
 })
 
-U2 = User.create ({
+User.create! ({
   first_name: "Rebecca",
   last_name: "Qu",
   email: "Rebecca@bitmaker.com",
-  password: "password"
+  password: "password", 
+  password_confirmation: "password"
 })
