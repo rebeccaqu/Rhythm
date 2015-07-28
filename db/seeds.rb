@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all()
+# DailyRhythm.destroy_all()
 
-User.create! ({
+u1 = User.create! ({
   first_name: "Aysha",
   last_name: "Eda",
   email: "Aysha@bitmaker.com",
@@ -17,10 +18,30 @@ User.create! ({
 
 })
 
-User.create! ({
+u2 = User.create! ({
   first_name: "Rebecca",
   last_name: "Qu",
   email: "Rebecca@bitmaker.com",
   password: "password", 
   password_confirmation: "password"
 })
+
+# r1 = DailyRhythm.create! ({
+#   cycle_num: 1,
+#   day_of_cycle: 1,
+#   date: ,
+#   period: true , 
+#   period_flow: "light" ,
+#   bbt: 97.8 ,
+#   cervical_fluid: , 
+#   pain: , 
+#   mood: , 
+#   pill: ,
+#   sex: 
+#   })
+
+
+
+
+
+
