@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727214207) do
+ActiveRecord::Schema.define(version: 20150728001208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_rhythms", force: :cascade do |t|
+    t.integer  "cycle_num"
+    t.integer  "day_of_cycle"
+    t.date     "date"
+    t.boolean  "period"
+    t.string   "period_flow"
+    t.float    "bbt"
+    t.string   "cervical_fluid"
+    t.integer  "pain"
+    t.string   "mood"
+    t.string   "pill"
+    t.string   "sex"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            null: false

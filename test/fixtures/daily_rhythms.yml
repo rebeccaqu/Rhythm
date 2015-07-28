@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cycle_num: 1
+  day_of_cycle: 1
+  date: 2015-07-27
+  period: false
+  period_flow: MyString
+  bbt: 1.5
+  cervical_fluid: MyString
+  pain: 1
+  mood: MyString
+  pill: MyString
+  sex: MyString
+
+two:
+  cycle_num: 1
+  day_of_cycle: 1
+  date: 2015-07-27
+  period: false
+  period_flow: MyString
+  bbt: 1.5
+  cervical_fluid: MyString
+  pain: 1
+  mood: MyString
+  pill: MyString
+  sex: MyString
