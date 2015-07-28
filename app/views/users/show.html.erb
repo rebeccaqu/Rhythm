@@ -1,8 +1,21 @@
 <h1> <%= @user.first_name %>'s Page</h1>
 
+<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
 
 <h3>Your Current Rhythm</h3>
 
-<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
+CURRENT CYCLE
+- current day of cycle
+- this cycle's period start - end
+- this cycle's fertility window start - end
+
+NEXT CYCLE
+
+- next cycle's period start- end
+- next cycle's fertility window start - end
 
 <h3>Your Average Rhythm</h3>
+
+- average period length
+- average fertile window length
+- average cycle length

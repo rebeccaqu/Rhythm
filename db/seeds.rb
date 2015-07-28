@@ -26,22 +26,52 @@ u2 = User.create! ({
   password_confirmation: "password"
 })
 
-r1 = DailyRhythm.create! ({
-  cycle_num: 1,
-  day_of_cycle: 1,
-  date: Date.today,
-  period: true, 
-  period_flow: "light",
-  bbt: 97.8,
-  cervical_fluid: "flow", 
-  pain: 6, 
-  mood: "irritable", 
-  pill: "taken",
-  sex: "protected",
-  user_id: u1.id
-  })
+startdate = Date.today
+days_into_cycle = 1
 
 
+3.times do |c|
+  period_length = 4 + Random.rand(7)
+  rest = 28 + Random.rand(3) - period_length
+
+  period_length.times do |i| { 
+    DailyRhythm.create! ({
+      cycle_num: c,
+      day_of_cycle: i,
+      date: startdate + days_into_history.days,
+      period: true, 
+      period_flow: "light",
+      bbt: 97.8,
+      cervical_fluid: "flow", 
+      pain: , 
+      mood: "irritable", 
+      pill: "taken",
+      sex: "protected",
+      user_id: u1.id
+      })
+    days_into_history +=1
+  }
+
+
+  rest.times do |i| {
+    DailyRhythm.create! ({
+      cycle_num: c,
+      day_of_cycle: i + period_length,
+      date: startdate + days_into_history.days,
+      period: false, 
+      period_flow: "light",
+      bbt: 97.8,
+      cervical_fluid: "flow", 
+      pain: , 
+      mood: "irritable", 
+      pill: "taken",
+      sex: "protected",
+      user_id: u1.id
+      })
+    days_into_history += 1
+  }
+
+end
 
 
 
