@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
 
-  resources :users, only: [:index, :new, :create, :show]
+  resources :users, only: [:index, :new, :create, :show] do 
+    resources :daily_rhythms, only: [:index, :new, :create, :show, :edit, :update]
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

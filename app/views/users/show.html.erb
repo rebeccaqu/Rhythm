@@ -1,0 +1,8 @@
+<h1> <%= @user.first_name %>'s Page</h1>
+
+
+<h3>Your Current Rhythm</h3>
+
+<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
+
+<h3>Your Average Rhythm</h3>

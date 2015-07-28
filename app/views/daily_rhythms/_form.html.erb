@@ -1,0 +1,60 @@
+<%= form_for ([@user, @daily_rhythm]) do |f| %>
+
+  <div class="field">
+    <%= f.label :period, "Yes", :value => "true"  %>
+    <%= f.radio_button :period, true %>
+    <%= f.label :period, "No", :value => "false" %>
+    <%= f.radio_button :period, false, :checked => true %>
+  </div>
+
+  <div>
+  <%= f.select :period_flow, [['Light','light'],['Medium','medium'],['heavy','heavy']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label "basal body temperature" %><br />
+    <%= f.text_area :bbt %>
+  </div>
+  
+   <div>
+   <%= f.label :cervical_fluid %><br />
+  <%= f.select :cervical_fluid, [['tacky','tacky'],['slippery','slippery'],['cloudy','cloudy'], ['period','period'], ['dry','dry']] %>
+  </div>
+
+  <div>
+  <%= f.label :pain %><br />
+  <select name="user[role_id]">
+    <option value="">Please select</option>
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  </div>
+
+  <div>
+  <%= f.label :mood %><br />
+  <%= f.select :mood, [['normal','normal'],['irritable','irritable'],['happy','happy'], ['sad','sad'], ['sensitive','sensitive']] %>
+  </div>
+
+  <div>
+  <%= f.label :pill %><br />
+  <%= f.select :pill, [['taken','taken'],['missed','missed'],['late','late'], ['double','double']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.select :sex, [['unprotected','unprotected'],['protected','protected'],['withdraw','withdraw'], ['none','none']] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

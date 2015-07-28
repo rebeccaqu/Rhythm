@@ -9,4 +9,24 @@ class User < ActiveRecord::Base
 
 
   has_many :daily_rhythms
+
+  def on_period?
+    daily_rhythms.last.period
+  end 
+
+  def last_cycle
+    if daily_rhythms.last[-2]
+      daily_rhythms.last.cycle_num
+    else
+      return 1
+    end
+  end
+
+  def last_day
+    if daily_rhythms.last[-2]
+      daily_rhythms.last.day_of_cycle
+    else
+      return 1
+    end
+  end
 end
