@@ -26,12 +26,13 @@ u2 = User.create({
   password_confirmation: "password"
 })
 
+
 startdate = Date.today
 days_into_history = 1
 
 3.times do |c| 
   period_length = 3 + Random.rand(4)
-  rest_length = 21 + Random.rand(7) - period_length
+  rest_length = 21 + Random.rand(14) - period_length
 
   period_length.times do |i| 
     DailyRhythm.create({
@@ -67,10 +68,9 @@ days_into_history = 1
       sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
       user_id: u1.id )
     days_into_history += 1
-  end
+  end 
 
 end
-
 
 
 

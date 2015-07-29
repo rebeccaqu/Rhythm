@@ -1,21 +1,26 @@
-<h1> <%= @user.first_name %>'s Page</h1>
+<h1> Weclome, <%= @user.first_name %>!</h1>
 
 <%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
 
-<h3>Your Current Rhythm</h3>
+<h1>Your Current Rhythm</h1>
 
-CURRENT CYCLE
-- current day of cycle
-- this cycle's period start - end
-- this cycle's fertility window start - end
+<h3>CURRENT CYCLE: </h3>
+<p>Today's Date: <%= Date.today %></p>
+<p>Day of Cycle: </p>
+<p>Period Start date: </p>
+<p>Period End date: </p>
+<p>Fertility Window Start date: </p>
+<p>Fertility Window End date: </p>
 
-NEXT CYCLE
 
-- next cycle's period start- end
-- next cycle's fertility window start - end
+<h3>NEXT CYCLE: </h3> 
+<p>Period Start date: </p>
+<p>Period End date: </p>
+<p>Fertility Window Start date: <%= @user.fertile_window_start  %> </p>
+<p>Fertlity Window End date: <%= @user.fertile_window_end  %> </p>
 
-<h3>Your Average Rhythm</h3>
+<h1>Your Average Rhythm</h1>
 
-- average period length
-- average fertile window length
-- average cycle length
+<p>Average Period Length: </p>
+<p>Average Fertile Window Length: </p>
+<p>Average Cycle Length: </p>
