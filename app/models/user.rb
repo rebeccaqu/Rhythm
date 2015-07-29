@@ -11,22 +11,26 @@ class User < ActiveRecord::Base
   has_many :daily_rhythms
 
   def on_period?
-    daily_rhythms.last.period
+    if daily_rhythms.count > 1
+      daily_rhythms.last.period
+    else
+      return false
+    end
   end 
 
   def last_cycle
-    if daily_rhythms.last[-2]
+    if daily_rhythms.count > 1
       daily_rhythms.last.cycle_num
     else
-      return 1
+      return 0
     end
   end
 
   def last_day
-    if daily_rhythms.last[-2]
+    if daily_rhythms.count > 1
       daily_rhythms.last.day_of_cycle
     else
-      return 1
+      return 0
     end
   end
 end

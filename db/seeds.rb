@@ -9,7 +9,7 @@
 User.destroy_all()
 DailyRhythm.destroy_all()
 
-u1 = User.create! ({
+u1 = User.create({
   first_name: "Aysha",
   last_name: "Eda",
   email: "Aysha@bitmaker.com",
@@ -18,7 +18,7 @@ u1 = User.create! ({
 
 })
 
-u2 = User.create! ({
+u2 = User.create({
   first_name: "Rebecca",
   last_name: "Qu",
   email: "Rebecca@bitmaker.com",
@@ -27,49 +27,47 @@ u2 = User.create! ({
 })
 
 startdate = Date.today
-days_into_cycle = 1
+days_into_history = 1
 
+3.times do |c| 
+  period_length = 3 + Random.rand(4)
+  rest_length = 21 + Random.rand(7) - period_length
 
-3.times do |c|
-  period_length = 4 + Random.rand(7)
-  rest = 28 + Random.rand(3) - period_length
-
-  period_length.times do |i| { 
-    DailyRhythm.create! ({
+  period_length.times do |i| 
+    DailyRhythm.create({
       cycle_num: c,
       day_of_cycle: i,
       date: startdate + days_into_history.days,
       period: true, 
-      period_flow: "light",
-      bbt: 97.8,
-      cervical_fluid: "flow", 
-      pain: , 
-      mood: "irritable", 
-      pill: "taken",
-      sex: "protected",
-      user_id: u1.id
-      })
-    days_into_history +=1
-  }
+      period_flow: [:light, :medium, :heavy].sample,
+      bbt:  rand(97.7..98.7),
+      cervical_fluid: ['egg-white', 'sticky', 'cloudy', 'dry', 'atypical', 'period'].sample, 
+      pain: rand(1..10), 
+      mood: ['normal', 'irritable', 'happy', 'sad', 'sensitive'].sample, 
+      pill:  ['taken', 'missed', 'late', 'double'].sample,
+      sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
+      user_id: u1.id})
+
+    days_into_history += 1
+  end
 
 
-  rest.times do |i| {
-    DailyRhythm.create! ({
+  rest_length.times do |i| 
+    DailyRhythm.create(
       cycle_num: c,
       day_of_cycle: i + period_length,
       date: startdate + days_into_history.days,
       period: false, 
-      period_flow: "light",
-      bbt: 97.8,
-      cervical_fluid: "flow", 
-      pain: , 
-      mood: "irritable", 
-      pill: "taken",
-      sex: "protected",
-      user_id: u1.id
-      })
+      period_flow: [:light, :medium, :heavy].sample,
+      bbt:  rand(97.7..98.7),
+      cervical_fluid: ['egg-white', 'sticky', 'cloudy', 'dry', 'atypical', 'period'].sample, 
+      pain: rand(1..10), 
+      mood: ['normal', 'irritable', 'happy', 'sad', 'sensitive'].sample, 
+      pill: ['taken', 'missed', 'late', 'double'].sample,
+      sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
+      user_id: u1.id )
     days_into_history += 1
-  }
+  end
 
 end
 
