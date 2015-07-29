@@ -3,24 +3,24 @@
 <%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
 
 <h1>Your Current Rhythm</h1>
-
+<!-- 
 <h3>CURRENT CYCLE: </h3>
 <p>Today's Date: <%= Date.today %></p>
 <p>Day of Cycle: </p>
-<p>Period Start date: </p>
+<p>Period Start date:</p>
 <p>Period End date: </p>
 <p>Fertility Window Start date: </p>
-<p>Fertility Window End date: </p>
+<p>Fertility Window End date: </p> -->
 
 
 <h3>NEXT CYCLE: </h3> 
-<p>Period Start date: </p>
-<p>Period End date: </p>
+<p>Period Start date: 1 </p>
+<p>Period End date: <%= @user.avg_period %> </p>
 <p>Fertility Window Start date: <%= @user.fertile_window_start  %> </p>
 <p>Fertlity Window End date: <%= @user.fertile_window_end  %> </p>
 
 <h1>Your Average Rhythm</h1>
 
-<p>Average Period Length: </p>
+<p>Average Period Length: <%= @user.avg_period %>  </p>
 <p>Average Fertile Window Length: </p>
 <p>Average Cycle Length: </p>

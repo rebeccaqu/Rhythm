@@ -50,4 +50,9 @@ class User < ActiveRecord::Base
     max_days.min - 18
   end
 
+  def avg_period
+    total = daily_rhythms.where(period: true).count
+    total / daily_rhythms.maximum(:cycle_num)
+  end
+
 end
