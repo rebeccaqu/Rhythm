@@ -7,8 +7,8 @@
 <h3>CURRENT CYCLE: </h3>
 <p>Today's Date: <%= Date.today %></p>
 <p>Day of Cycle: <%= @user.day_of_cycle %></p>
-<p>Period Start date: <%= @user.last_period_info %></p>
-<p>Period End date: </p>
+<p>Period Start date: <%= @user.first_day_of_period %></p>
+<p>Period End date: <%= @user.last_day_of_period %> </p>
 <p>Fertility Window Start date: </p>
 <p>Fertility Window End date: </p>
 

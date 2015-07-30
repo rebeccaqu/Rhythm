@@ -80,9 +80,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def last_period_info
-    last_cycle_num = daily_rhythms.last.cycle_num
+  def first_day_of_period
     daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first.date
+  end
+
+  def last_day_of_period
+    daily_rhythms.where(period: true).last.date
   end
 
 end

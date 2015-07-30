@@ -27,7 +27,7 @@ u2 = User.create({
 })
 
 
-startdate = Date.today
+startdate = Date.today - 10
 days_into_history = 1
 
 
