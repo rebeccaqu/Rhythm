@@ -73,7 +73,16 @@ class User < ActiveRecord::Base
   # Current Cycle: 
 
   def day_of_cycle
-    
+    if daily_rhythms.last.date != Date.today 
+      daily_rhythms.last.day_of_cycle + 1 
+    else
+      daily_rhythms.last.day_of_cycle
+    end
+  end
+
+  def last_period_info
+    last_cycle_num = daily_rhythms.last.cycle_num
+    daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first.date
   end
 
 end

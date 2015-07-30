@@ -5,9 +5,9 @@
 <h1>Your Current Rhythm</h1>
 <!-- These are data directly from the user each month -->
 <h3>CURRENT CYCLE: </h3>
-<p>Today's Date: <%= Date.today %>%></p>
-<p>Day of Cycle: </p>
-<p>Period Start date: </p>
+<p>Today's Date: <%= Date.today %></p>
+<p>Day of Cycle: <%= @user.day_of_cycle %></p>
+<p>Period Start date: <%= @user.last_period_info %></p>
 <p>Period End date: </p>
 <p>Fertility Window Start date: </p>
 <p>Fertility Window End date: </p>
