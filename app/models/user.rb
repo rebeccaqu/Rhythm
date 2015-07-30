@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
-
   has_many :daily_rhythms
+
+  # Auto-generated data: 
 
   def on_period?
     if daily_rhythms.count > 1
@@ -34,9 +35,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def fertile_window_end
-    daily_rhythms.maximum(:day_of_cycle) - 11
-  end
+  # Upcoming Cycle:
 
   def fertile_window_start
     i = 1
@@ -50,9 +49,31 @@ class User < ActiveRecord::Base
     max_days.min - 18
   end
 
+  def fertile_window_end
+    daily_rhythms.maximum(:day_of_cycle) - 11
+  end
+
   def avg_period
     total = daily_rhythms.where(period: true).count
     total / daily_rhythms.maximum(:cycle_num)
+  end
+
+  def avg_cycle_length
+    i = 1
+    total_days = 0
+
+    while i <= daily_rhythms.last.cycle_num
+      total_days += daily_rhythms.where(cycle_num: i).count
+      i += 1
+    end
+
+    (total_days / daily_rhythms.last.cycle_num).to_i
+  end
+
+  # Current Cycle: 
+
+  def day_of_cycle
+    
   end
 
 end
