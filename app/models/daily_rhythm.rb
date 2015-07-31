@@ -1,7 +1,7 @@
 class DailyRhythm < ActiveRecord::Base
   belongs_to :user
 
-  before_save :populate_rhythm_default
+  # before_save :populate_rhythm_default
 
   def populate_rhythm_default
     self.date = Date.today
