@@ -1,26 +1,34 @@
 <h1> Weclome, <%= @user.first_name %>!</h1>
 
-<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
+<% if current_user.daily_rhythms.count == 0 %>
 
-<h1>Your Current Rhythm</h1>
-<!-- These are data directly from the user each month -->
-<h3>CURRENT CYCLE: </h3>
-<p>Today's Date: <%= Date.today %></p>
-<p>Day of Cycle: <%= @user.day_of_cycle %></p>
-<p>Period Start date: <%= @user.first_day_of_period %></p>
-<p>Period End date: <%= @user.last_day_of_period %> </p>
-<p>Fertility Window Start date: </p>
-<p>Fertility Window End date: </p>
+	<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
+
+<% else %>	
+
+	<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
+
+	<h1>Your Current Rhythm</h1>
+	<!-- These are data directly from the user each month -->
+	<h3>CURRENT CYCLE: </h3>
+	<p>Today's Date: <%= Date.today %></p>
+	<p>Day of Cycle: <%= @user.day_of_cycle %></p>
+	<p>Period Start date: <%= @user.first_day_of_period %></p>
+	<p>Period End date: <%= @user.last_day_of_period %> </p>
+	<p>Fertility Window Start date: </p>
+	<p>Fertility Window End date: </p>
 
 
-<h3>UPCOMING CYCLE: </h3> 
-<p>Period Start date: 1 </p>
-<p>Period End date: <%= @user.avg_period %> </p>
-<p>Fertility Window Start date: <%= @user.fertile_window_start  %> </p>
-<p>Fertlity Window End date: <%= @user.fertile_window_end  %> </p>
+	<h3>UPCOMING CYCLE: </h3> 
+	<p>Period Start date: 1 </p>
+	<p>Period End date: <%= @user.avg_period %> </p>
+	<p>Fertility Window Start date: <%= @user.fertile_window_start  %> </p>
+	<p>Fertlity Window End date: <%= @user.fertile_window_end  %> </p>
 
-<h1>Your Average Rhythm</h1>
+	<h1>Your Average Rhythm</h1>
 
-<p>Average Period Length: <%= @user.avg_period %>  </p>
-<p>Average Fertile Window Length: <%= @user.fertile_window_end - @user.fertile_window_start %></p>
-<p>Average Cycle Length: <%= @user.avg_cycle_length %></p>
+	<p>Average Period Length: <%= @user.avg_period %>  </p>
+	<p>Average Fertile Window Length: <%= @user.fertile_window_end - @user.fertile_window_start %></p>
+	<p>Average Cycle Length: <%= @user.avg_cycle_length %></p>
+	
+<% end %>

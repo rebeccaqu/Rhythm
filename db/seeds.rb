@@ -27,7 +27,7 @@ u2 = User.create({
 })
 
 
-startdate = Date.today - 10
+startdate = 90.days.ago
 days_into_history = 1
 
 
@@ -39,9 +39,10 @@ days_into_history = 1
   User.all.each do |user|
 
     period_length.times do |i| 
+      # puts "Creating cycle #{c}, day #{i}"
       DailyRhythm.create({
-        cycle_num: c,
-        day_of_cycle: i,
+        cycle_num: c+1,
+        day_of_cycle: i+1,
         date: startdate + days_into_history.days,
         period: true, 
         period_flow: [:light, :medium, :heavy].sample,
@@ -51,16 +52,19 @@ days_into_history = 1
         mood: ['normal', 'irritable', 'happy', 'sad', 'sensitive'].sample, 
         pill:  ['taken', 'missed', 'late', 'double'].sample,
         sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
-        user_id: user.id})
+        user_id: u1.id})
 
       days_into_history += 1
     end
 
 
     rest_length.times do |i| 
+
+      # puts "Creating cycle #{c}, day #{i}"
+
       DailyRhythm.create(
-        cycle_num: c,
-        day_of_cycle: i + period_length,
+        cycle_num: c+1,
+        day_of_cycle: i + 1 + period_length,
         date: startdate + days_into_history.days,
         period: false, 
         period_flow: [:light, :medium, :heavy].sample,
@@ -70,7 +74,7 @@ days_into_history = 1
         mood: ['normal', 'irritable', 'happy', 'sad', 'sensitive'].sample, 
         pill: ['taken', 'missed', 'late', 'double'].sample,
         sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
-        user_id: user.id )
+        user_id: u1.id )
       days_into_history += 1
     end 
   end

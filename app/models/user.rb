@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
+  has_many :daily_rhythms
+
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
-
   validates :email, uniqueness: true
 
-  has_many :daily_rhythms
 
   # Auto-generated data: 
 
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   end 
 
   def last_cycle
+
     if daily_rhythms.count > 1
       daily_rhythms.last.cycle_num
     else
@@ -71,13 +72,12 @@ class User < ActiveRecord::Base
   end
 
   # Current Cycle: 
-
   def day_of_cycle
-    if daily_rhythms.last.date != Date.today 
-      daily_rhythms.last.day_of_cycle + 1 
-    else
-      daily_rhythms.last.day_of_cycle
-    end
+      if daily_rhythms.last.date != Date.today 
+        daily_rhythms.last.day_of_cycle + 1 
+      else
+        daily_rhythms.last.day_of_cycle
+      end
   end
 
   def first_day_of_period
@@ -87,5 +87,4 @@ class User < ActiveRecord::Base
   def last_day_of_period
     daily_rhythms.where(period: true).last.date
   end
-
 end

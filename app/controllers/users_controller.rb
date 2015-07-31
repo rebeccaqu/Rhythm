@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 skip_before_filter :require_login, only: [:index, :new, :create]
   
   def index
-    # @user = User.find(params[:id])
   end
 
   def new
@@ -14,8 +13,8 @@ skip_before_filter :require_login, only: [:index, :new, :create]
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to(root_url, notice: 'User was successfully created')
-      # redirect_back_or_to root_url, :notice => "Signed up!"
+      auto_login(@user)
+      redirect_to(user_path(current_user), notice: 'User was successfully created')
     else
       render :new, :notice => "Try again"
     end
@@ -28,6 +27,6 @@ skip_before_filter :require_login, only: [:index, :new, :create]
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, daily_rhythms_attributes: [:period, :period_flow, :cervical_fluid, :pain, :mood, :pill, :sex] ) 
   end
 end
