@@ -1,3 +1,6 @@
+<%#= javascript_include_tag('users.js') %>
+<!-- <script src="users.js"></script> -->
+
 <h1> Weclome, <%= @user.first_name %>!</h1>
 
 <% if current_user.daily_rhythms.count == 0 %>
@@ -33,3 +36,7 @@
 	<p>Average Cycle Length: <%= @user.avg_cycle_length %></p>
 	
 <% end %>
+
+<div id="target" class="bar" style="border:1px solid black">
+   <p>Hello world</p>
+</div>
