@@ -1,6 +1,10 @@
 class DailyRhythmsController < ApplicationController
   before_filter :load_user
 
+  def index
+    
+  end
+
   def new
     @daily_rhythm = DailyRhythm.new
   end
