@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-  <title>Rhythm</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="users.js"></script>
+    <title>Rhythm</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+    <link rel="stylesheet" type="text/css" href="applications.css">
 
-<body>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
 
   <div id="nav">
       <% if current_user %>
@@ -22,12 +22,13 @@
         <%= link_to "Login", :login %>
       <% end %>
     </div>
+
     <div>
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
     </div>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>
