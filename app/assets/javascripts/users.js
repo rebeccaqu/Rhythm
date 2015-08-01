@@ -1,6 +1,7 @@
-
 $(document).ready(function(){
 
-  $('#target').append("<p>hello world</p>");
+for(var i = 1; i <= 10; i++) {
+  $('.current-rhythm').append($('<div>', { id: 'r' + i, 'class' : 'current-rhythm'}))
+  }
   
-};
+});

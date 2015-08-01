@@ -1,0 +1,22 @@
+.current-rhythm {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 50px;
+}
+
+.current-rhythm p {
+  color: red;
+}
+
+.average-rhythm {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 50px;
+}
+
+.average-rhythm p {
+  color: teal;
+}
+
