@@ -50,6 +50,18 @@ class User < ActiveRecord::Base
     max_days.min - 18
   end
 
+    def fertile_window_start_date
+    i = 1
+    max_days = []
+
+    while i <= daily_rhythms.last.cycle_num
+      max_days << daily_rhythms.where(cycle_num: i).count
+      i += 1
+    end
+
+    max_days.min - 18
+  end
+
   def fertile_window_end
     daily_rhythms.maximum(:day_of_cycle) - 11
   end
