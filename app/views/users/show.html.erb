@@ -1,12 +1,6 @@
 <h1> Weclome, <%= @user.first_name %>!</h1>
 
-<div id="r" class="current-rhythm">
-   <p>Current Rhythm</p>
-</div> 
-
-<div id="r" class="average-rhythm">
-   <p>Average Rhythm</p>
-</div>
+<div id="doughnutChart" class="chart"></div>
 
 <% if current_user.daily_rhythms.count == 0 %>
 
