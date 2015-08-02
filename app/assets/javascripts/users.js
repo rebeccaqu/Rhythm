@@ -1,5 +1,5 @@
 $(document).ready(function(){
-// alert(gon.cycle_window_one)
+// alert(gon.last_day)
 $(function(){
   $("#doughnutChart").drawDoughnutChart([
     { title: "Period", value: gon.period_length, color: "#FC4349" },

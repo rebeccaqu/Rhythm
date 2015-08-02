@@ -24,7 +24,7 @@ skip_before_filter :require_login, only: [:index, :new, :create]
     @user = User.find(params[:id])
     gon.first_day = @user.first_day_of_period.day_of_cycle 
     gon.last_day = @user.last_day_of_period.day_of_cycle
-    gon.period_length = gon.last_day - gon.first_day
+    gon.period_length = gon.last_day
  
     gon.fertility_window = @user.fertile_window_end - @user.fertile_window_start
 
