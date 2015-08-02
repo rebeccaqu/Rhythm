@@ -36,6 +36,9 @@ gem 'sorcery'
 
 gem 'whenever', :require => false
 
+gem 'gon'
+
+gem 'rabl-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
