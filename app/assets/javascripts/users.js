@@ -1,11 +1,11 @@
 $(document).ready(function(){
-
+// alert(gon.cycle_window_one)
 $(function(){
   $("#doughnutChart").drawDoughnutChart([
-    { title: "Period", value:  5,   color: "#FC4349" },
-    { title: "Cycle", value : 5,  color: "#2C3E50" },
-    { title: "Fertile Window", value : 7,   color: "#F7E248" },
-    { title: "Cycle", value:  11,   color: "#2C3E50" },
+    { title: "Period", value: gon.period_length, color: "#FC4349" },
+    { title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
+    { title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
+    { title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
   ]);
 });
 

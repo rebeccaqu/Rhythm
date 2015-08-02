@@ -17,17 +17,19 @@
 	<h3>CURRENT CYCLE: </h3>
 	<p>Today's Date: <%= Date.today %></p>
 	<p>Day of Cycle: <%= @user.day_of_cycle %></p>
-	<p>Period Start date: <%= @user.first_day_of_period %></p>
-	<p>Period End date: <%= @user.last_day_of_period %> </p>
-	<p>Fertility Window Start date: <%= @user.first_day_of_period + @user.fertile_window_start %> </p>
-	<p>Fertlity Window End date: <%= @user.first_day_of_period + @user.fertile_window_end %> </p>
+
+	<p>Period Start date: <%= @user.first_day_of_period.date %></p>
+	<p>Period End date: <%= @user.last_day_of_period.date %> </p>
+
+	<p>Fertility Window Start date: <%= @user.first_day_of_period.date + @user.fertile_window_start %> </p>
+	<p>Fertlity Window End date: <%= @user.first_day_of_period.date + @user.fertile_window_end %> </p>
 
 
 	<h3>UPCOMING CYCLE: </h3> 
-	<p>Period Start date: <%= @user.first_day_of_period + @user.avg_cycle_length %> </p>
-	<p>Period End date: <%= @user.last_day_of_period + @user.avg_cycle_length%> </p>
-	<p>Fertility Window Start date: <%= @user.first_day_of_period + @user.fertile_window_start %> </p>
-	<p>Fertlity Window End date: <%= @user.first_day_of_period + @user.fertile_window_end %> </p>
+	<p>Period Start date: <%= @user.first_day_of_period.date + @user.avg_cycle_length %> </p>
+	<p>Period End date: <%= @user.last_day_of_period.date + @user.avg_cycle_length%> </p>
+	<p>Fertility Window Start date: <%= @user.first_day_of_period.date + @user.fertile_window_start %> </p>
+	<p>Fertlity Window End date: <%= @user.first_day_of_period.date + @user.fertile_window_end %> </p>
 
 
 	<h1>Your Average Rhythm</h1>

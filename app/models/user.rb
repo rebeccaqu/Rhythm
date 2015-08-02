@@ -93,11 +93,11 @@ class User < ActiveRecord::Base
   end
 
   def first_day_of_period
-    daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first.date
+    daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
   end
 
   def last_day_of_period
     curr_cycle = daily_rhythms.last.cycle_num
-    daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true ).last.date
+    daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true ).last
   end
 end
