@@ -1,5 +1,7 @@
 <h1> Weclome, <%= @user.first_name %>!</h1>
 
+<div id="doughnutChart" class="chart"></div>
+
 <% if current_user.daily_rhythms.count == 0 %>
 
 	<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
@@ -35,7 +37,3 @@
 	<p>Average Cycle Length: <%= @user.avg_cycle_length %></p>
 	
 <% end %>
-
-<div id="target" class="bar" style="border:1px solid black">
-   <p>First Bar</p>
-</div>
