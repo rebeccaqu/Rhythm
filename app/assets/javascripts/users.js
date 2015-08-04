@@ -1,12 +1,27 @@
 $(document).ready(function(){
 // alert(gon.last_day)
 $(function(){
-  $("#doughnutChart").drawDoughnutChart([
-    { title: "Period", value: gon.period_length, color: "#FC4349" },
-    { title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
+  var doughnutItems = [];
+
+  // gon.cycle_data = [{date: "aug 1", period: true}, {date: "aug 2", period: false}];
+
+  // for (var i=0; i<gon.cycle_data; i++)
+  for (var i=0; i<gon.period_length; i++) {
+    doughnutItems.push({
+      title: "Period Length " + gon.period_length,
+      value: 1,
+      color: "#FC4349",
+      onClick: function() { window.location = '/user/1'; }
+    });
+  }
+
+  doughnutItems = doughnutItems.concat([
+    //{ title: "Period", value: gon.period_length, color: "#FC4349" },
+    { title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50", onClick: function() { console.log("CYCLE"); }},
     { title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
     { title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
   ]);
+  $("#doughnutChart").drawDoughnutChart(doughnutItems);
 });
 
 ;(function($, undefined) {
@@ -116,6 +131,7 @@ $(function(){
         .appendTo($pathGroup)
         .on("mouseenter", pathMouseEnter)
         .on("mouseleave", pathMouseLeave)
+        .on("click", pathClick)
         .on("mousemove", pathMouseMove);
     }
 
@@ -150,7 +166,7 @@ $(function(){
     };
     function pathMouseEnter(e) {
       var order = $(this).data().order;
-      $tip.text(data[order].title + ": " + data[order].value)
+      $tip.text(data[order].title) // + ": " + data[order].value)
           .fadeIn(200);
       settings.onPathEnter.apply($(this),[e,data]);
     }
@@ -163,6 +179,10 @@ $(function(){
         top: e.pageY + settings.tipOffsetY,
         left: e.pageX - $tip.width() / 2 + settings.tipOffsetX
       });
+    }
+    function pathClick(e) {
+      var order = $(this).data().order;
+      data[order].onClick(e);
     }
     function drawPieSegments (animationDecimal) {
       var startRadius = -PI / 2,//-90 degree
@@ -180,7 +200,7 @@ $(function(){
       }
       for (var i = 0, len = data.length; i < len; i++) {
         var segmentAngle = rotateAnimation * ((data[i].value / segmentTotal) * (PI * 2)),
-            endRadius = startRadius + segmentAngle,
+            endRadius = startRadius + segmentAngle - 0.025,
             largeArc = ((endRadius - startRadius) % (PI * 2)) > PI ? 1 : 0,
             startX = centerX + cos(startRadius) * doughnutRadius,
             startY = centerY + sin(startRadius) * doughnutRadius,

@@ -1,5 +1,6 @@
 
-#days .calendar table {
+#calendar table {
+  margin: auto;
   border-collapse: collapse;
   width: 100%;
 }
@@ -25,6 +26,13 @@
   height: 80px;
   vertical-align: top;
   font-size: 16px;
+  padding: 0px;
+}
+
+#calendar td .foo {
+  background-color: #f00;
+  height: 80px;
+  margin: 0px; 
 }
 
 #calendar .notmonth {
