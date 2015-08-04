@@ -1,27 +1,110 @@
 $(document).ready(function(){
-// alert(gon.last_day)
+
+// Current Doughnut
 $(function(){
   var doughnutItems = [];
 
   // gon.cycle_data = [{date: "aug 1", period: true}, {date: "aug 2", period: false}];
 
-  // for (var i=0; i<gon.cycle_data; i++)
   for (var i=0; i<gon.period_length; i++) {
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
       color: "#FC4349",
-      onClick: function() { window.location = '/user/1'; }
+      onClick: function() { window.location = '/user/1'}
     });
-  }
+  }; 
+
+  for (var i=0; i<gon.cycle_window_one; i++) {
+    doughnutItems.push({
+      title: "", 
+      value: 1,  
+      color: "#2C3E50",
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+
+  for (var i=0; i<gon.fertility_window; i++) {
+    doughnutItems.push({
+      title: "Fertility Window Length " + gon.fertility_window, 
+      value: 1,  
+      color: "#F7E248",
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+
+  for (var i=0; i<gon.cycle_window_two; i++) {
+    doughnutItems.push({
+      title: "", 
+      value: 1,  
+      color: "#2C3E50", 
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
 
   doughnutItems = doughnutItems.concat([
     //{ title: "Period", value: gon.period_length, color: "#FC4349" },
-    { title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50", onClick: function() { console.log("CYCLE"); }},
-    { title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
-    { title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
+    //{ title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
+    //{ title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
+    //{ title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
   ]);
-  $("#doughnutChart").drawDoughnutChart(doughnutItems);
+
+  $("#doughnutChart_current").drawDoughnutChart(doughnutItems);
+
+});
+
+// Average Doughnut
+$(function(){
+  var doughnutItems = [];
+
+  // gon.cycle_data = [{date: "aug 1", period: true}, {date: "aug 2", period: false}];
+
+  for (var i=0; i<gon.average_period_length; i++) {
+    doughnutItems.push({
+      title: "Period Length " + gon.period_length,
+      value: 1,
+      color: "#FC4349",
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+  
+
+  for (var i=0; i<gon.average_cycle_window_one; i++) {
+    doughnutItems.push({
+      title: "", 
+      value: 1,  
+      color: "#2C3E50",
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+
+  for (var i=0; i<gon.average_fertility_window_length; i++) {
+    doughnutItems.push({
+      title: "Fertility Window Length " + gon.fertility_window, 
+      value: 1,  
+      color: "#F7E248",
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+
+  for (var i=0; i<gon.average_cycle_window_two; i++) {
+    doughnutItems.push({
+      title: "", 
+      value: 1,  
+      color: "#2C3E50", 
+      onClick: function() { window.location = '/user/1'}
+    });
+  };
+
+  doughnutItems = doughnutItems.concat([
+    //{ title: "Period", value: gon.period_length, color: "#FC4349" },
+    //{ title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
+    //{ title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
+    //{ title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
+  ]);
+
+  $("#doughnutChart_avg").drawDoughnutChart(doughnutItems);
+
 });
 
 ;(function($, undefined) {
@@ -109,12 +192,12 @@ $(function(){
     //Set up center text area
     var summarySize = (cutoutRadius - (doughnutRadius - cutoutRadius)) * 2,
         $summary = $('<div class="' + settings.summaryClass + '" />')
-                   .appendTo($this)
+                   .prependTo($this)
                    .css({ 
                      width: summarySize + "px",
                      height: summarySize + "px",
-                     "margin-left": -(summarySize / 2) + "px",
-                     "margin-top": -(summarySize / 2) + "px"
+                     // "margin-left": -(summarySize / 2) + "px",
+                     // "margin-top": -(summarySize / 2) + "px"
                    });
     var $summaryTitle = $('<p class="' + settings.summaryTitleClass + '">' + settings.summaryTitle + '</p>').appendTo($summary);
     var $summaryNumber = $('<p class="' + settings.summaryNumberClass + '"></p>').appendTo($summary).css({opacity: 0});

@@ -1,19 +1,22 @@
-<h1> Weclome, <%= @user.first_name %>!</h1>
+<div class="welcome">
+	<h1> Weclome, <%= @user.first_name %>!</h1>
+</div>
 
-<div id="doughnutChart" class="chart"></div>
+<div class ="buttons">
+	<% if current_user.daily_rhythms.count == 0 %>
+		<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
+	<% else %>	
+		<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %> |
+		<%= link_to 'Your History', user_daily_rhythms_path(@user) %>
+	<% end %>
+</div>
 
-<% if current_user.daily_rhythms.count == 0 %>
+<div id="doughnutChart_current" class="chart"></div>
+<div id="doughnutChart_avg" class="chart"></div>
 
-	<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
 
-<% else %>	
+<div class="analytics">
 
-	<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %>
-
-	<p> <%= link_to 'Your History', user_daily_rhythms_path(@user) %> </p>
-
-	<h1>Your Current Rhythm</h1>
-	<!-- These are data directly from the user each month -->
 	<h3>CURRENT CYCLE: </h3>
 	<p>Today's Date: <%= Date.today %></p>
 	<p>Day of Cycle: <%= @user.day_of_cycle %></p>
@@ -27,15 +30,14 @@
 
 	<h3>UPCOMING CYCLE: </h3> 
 	<p>Period Start date: <%= @user.first_day_of_period.date + @user.avg_cycle_length %> </p>
-	<p>Period End date: <%= @user.last_day_of_period.date + @user.avg_cycle_length%> </p>
+	<p>Period End date: <%= @user.last_day_of_period.date + @user.avg_cycle_length %> </p>
 	<p>Fertility Window Start date: <%= @user.first_day_of_period.date + @user.fertile_window_start %> </p>
 	<p>Fertlity Window End date: <%= @user.first_day_of_period.date + @user.fertile_window_end %> </p>
 
 
-	<h1>Your Average Rhythm</h1>
-
+	<h3>AVERAGE: </h3>
 	<p>Average Period Length: <%= @user.avg_period %>  </p>
 	<p>Average Fertile Window Length: <%= @user.fertile_window_end - @user.fertile_window_start %></p>
 	<p>Average Cycle Length: <%= @user.avg_cycle_length %></p>
-	
-<% end %>
+</div>
+
