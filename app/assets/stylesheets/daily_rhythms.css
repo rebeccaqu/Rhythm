@@ -1,4 +1,5 @@
 
+
 #calendar table {
   margin: auto;
   border-collapse: collapse;
@@ -29,9 +30,21 @@
   padding: 0px;
 }
 
-#calendar td .foo {
+#calendar td .predicted_period {
   background-color: #f00;
-  height: 80px;
+  height: 40px;
+  margin: 0px; 
+}
+
+#calendar td .average_period {
+  background-color: #0f0;
+  height: 40px;
+  margin: 0px; 
+}
+
+#calendar td .fertile_period {
+  background-color: black;
+  height: 40px;
   margin: 0px; 
 }
 

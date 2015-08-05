@@ -6,12 +6,12 @@ $(function(){
   // gon.cycle_data = [{date: "aug 1", period: true}, {date: "aug 2", period: false}];
 
   // for (var i=0; i<gon.cycle_data; i++)
-  for (var i=0; i<gon.period_length; i++) {
+  for (var i=0; i < gon.period_length; i++) {
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
       color: "#FC4349",
-      onClick: function() { window.location = '/user/1'; }
+      onClick: function() 
     });
   }
 

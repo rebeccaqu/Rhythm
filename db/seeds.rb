@@ -27,7 +27,7 @@ u2 = User.create({
 })
 
 
-startdate = 90.days.ago
+startdate = 60.days.ago
 days_into_history = 1
 
 

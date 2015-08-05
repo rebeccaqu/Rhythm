@@ -2,7 +2,8 @@ class DailyRhythmsController < ApplicationController
   before_filter :load_user
 
   def index
-    
+    @user = User.find(params[:user_id])
+    # @daily_rhythm = @user.daily_rhythms
   end
 
   def new

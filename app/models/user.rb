@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
   end
 
   def last_day_of_period
-    curr_cycle = daily_rhythms.last.cycle_num
-    daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true ).last
+    curr_cycle = self.daily_rhythms.last.cycle_num
+    self.daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true).last
   end
 end
