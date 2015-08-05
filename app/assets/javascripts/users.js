@@ -1,27 +1,40 @@
 $(document).ready(function(){
 
+function findNextDailyRhythmId(i) {
+  var id = gon.rhythm_ids[i];
+  return id;
+};
 // Current Doughnut
 $(function(){
   var doughnutItems = [];
 
   // gon.cycle_data = [{date: "aug 1", period: true}, {date: "aug 2", period: false}];
 
+  // gives us an array with " " + users + id number
+  var user_id = window.location.pathname.split('/')[2];
+
+  function doughnutOnClick(e) {
+    rid = $(e.toElement).attr('rhythmid');
+    window.location = '/users/' + user_id + '/daily_rhythms/' + rid + '/edit'
+  }
 
   for (var i=0; i<gon.period_length; i++) {
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
       color: "#FC4349",
-      onClick: function() { window.location = '/user/1'}
+      onClick: function(e) {doughnutOnClick(e)}
     });
+
   }; 
+
 
   for (var i=0; i<gon.cycle_window_one; i++) {
     doughnutItems.push({
       title: "", 
       value: 1,  
       color: "#2C3E50",
-      onClick: function() { window.location = '/user/1'}
+      onClick: function(e) {doughnutOnClick(e)}
     });
   };
 
@@ -30,7 +43,7 @@ $(function(){
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
       color: "#F7E248",
-      onClick: function() { window.location = '/user/1'}
+      onClick: function(e) {doughnutOnClick(e)}
     });
   };
 
@@ -39,16 +52,9 @@ $(function(){
       title: "", 
       value: 1,  
       color: "#2C3E50", 
-      onClick: function() { window.location = '/user/1'}
+      onClick: function(e) {doughnutOnClick(e)}
     });
   };
-
-  doughnutItems = doughnutItems.concat([
-    //{ title: "Period", value: gon.period_length, color: "#FC4349" },
-    //{ title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
-    //{ title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
-    //{ title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
-  ]);
 
   $("#doughnutChart_current").drawDoughnutChart(doughnutItems);
 
@@ -64,8 +70,7 @@ $(function(){
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
-      color: "#FC4349",
-      onClick: function() { window.location = '/user/1'}
+      color: "#FC4349"
     });
   };
   
@@ -74,8 +79,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50",
-      onClick: function() { window.location = '/user/1'}
+      color: "#2C3E50"
     });
   };
 
@@ -83,8 +87,7 @@ $(function(){
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#F7E248",
-      onClick: function() { window.location = '/user/1'}
+      color: "#F7E248"
     });
   };
 
@@ -92,8 +95,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50", 
-      onClick: function() { window.location = '/user/1'}
+      color: "#2C3E50"
     });
   };
 
@@ -210,7 +212,8 @@ $(function(){
           "stroke-width": settings.segmentStrokeWidth,
           "stroke": settings.segmentStrokeColor,
           "fill": data[i].color,
-          "data-order": i
+          "data-order": i,
+          "rhythmId": findNextDailyRhythmId(i)
         })
         .appendTo($pathGroup)
         .on("mouseenter", pathMouseEnter)
@@ -223,6 +226,7 @@ $(function(){
     animationLoop(drawPieSegments);
 
     //Functions
+
     function getHollowCirclePath(doughnutRadius, cutoutRadius) {
         //Calculate values for the path.
         //We needn't calculate startRadius, segmentAngle and endRadius, because base doughnut doesn't animate.

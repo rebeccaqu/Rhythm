@@ -13,16 +13,15 @@ class User < ActiveRecord::Base
 
   def on_period?
     if daily_rhythms.count > 1
-      daily_rhythms.last.period
+      daily_rhythms.all[-1].period
     else
       return false
     end
   end 
 
   def last_cycle
-
     if daily_rhythms.count > 1
-      daily_rhythms.last.cycle_num
+      daily_rhythms.all[-1].cycle_num
     else
       return 0
     end
@@ -30,7 +29,7 @@ class User < ActiveRecord::Base
 
   def last_day
     if daily_rhythms.count > 1
-      daily_rhythms.last.day_of_cycle
+      daily_rhythms.all[-1].day_of_cycle
     else
       return 0
     end

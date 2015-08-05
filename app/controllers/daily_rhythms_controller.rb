@@ -1,4 +1,4 @@
-class DailyRhythmsController < ApplicationController
+ class DailyRhythmsController < ApplicationController
   before_filter :load_user
 
   def index
@@ -25,9 +25,18 @@ class DailyRhythmsController < ApplicationController
   end
 
   def edit
+    @daily_rhythm = User.find(params[:user_id]).daily_rhythms.find(params[:id])
   end
 
   def update
+    @daily_rhythm = @user.daily_rhythms.find(params[:id])
+    @daily_rhythm.update_attributes(daily_rhythm_params)
+
+    if @daily_rhythm.save
+      redirect_to user_url(params[:user_id])
+    else
+      render :edit, notice: "Failed to Update, please enter info again"
+    end
   end
 
   private

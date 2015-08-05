@@ -32,6 +32,11 @@ skip_before_filter :require_login, only: [:index, :new, :create]
     gon.cycle_window_one = @user.fertile_window_start - @user.last_day_of_period.day_of_cycle
     gon.cycle_window_two = @user.daily_rhythms.last.day_of_cycle - @user.fertile_window_end
 
+
+    current_cycle_num = @user.daily_rhythms.last.cycle_num
+    gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)
+
+
     # AVERAGE CYCLE: 
 
     gon.average_period_length = @user.avg_period

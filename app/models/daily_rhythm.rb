@@ -1,9 +1,13 @@
 class DailyRhythm < ActiveRecord::Base
   belongs_to :user
 
-  # before_save :populate_rhythm_default
+  before_save :populate_rhythm_default, if: -> { self.date.blank? }
 
   def populate_rhythm_default
+    # return if self.date.present?
+
+    # if self.date.blank? 
+    
     self.date = Date.today
 
     if (user.on_period? == false) && (self.period == true)  
@@ -13,11 +17,7 @@ class DailyRhythm < ActiveRecord::Base
       self.cycle_num = user.last_cycle
       self.day_of_cycle = user.last_day + 1
     end
-  end
 
-  #  def last_day_of_period
-  #   curr_cycle = daily_rhythms.last.cycle_num
-  #   daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true ).last
-  # end
+  end
 
 end
