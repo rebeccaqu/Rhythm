@@ -31,21 +31,28 @@
 }
 
 #calendar td .predicted_period {
+  position: relative;
   background-color: #f00;
-  height: 40px;
+  height: 25px;
   margin: 0px; 
+  color: #000066;
+  text-align: center;
 }
 
 #calendar td .average_period {
-  background-color: #0f0;
-  height: 40px;
+  background-color: #FF8080;
+  height: 25px;
   margin: 0px; 
+  color: #000066;
+  text-align: center;
 }
 
 #calendar td .fertile_period {
-  background-color: black;
-  height: 40px;
-  margin: 0px; 
+  background-color: #009933;
+  height: 25px;
+  margin: 0px;
+  color: #000066;
+  text-align: center; 
 }
 
 #calendar .notmonth {
@@ -66,7 +73,7 @@
 }
 
 #calendar .today {
-  background-color: #D7F2FF;
+  background-color: #99E6FF;
 }
 
 #calendar ul {
