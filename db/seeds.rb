@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all()
 DailyRhythm.destroy_all()
@@ -15,7 +8,6 @@ u1 = User.create({
   email: "Aysha@bitmaker.com",
   password: "password", 
   password_confirmation: "password"
-
 })
 
 u2 = User.create({
@@ -27,19 +19,17 @@ u2 = User.create({
 })
 
 
-startdate = 60.days.ago
-days_into_history = 1
+startdate = 60.days.ago   # Since we have 90 days in total: 60 days are past, 30 days are future
+days_into_history = 1     # Sets first day as 1 instead of 0 (default)
 
 
-(1..3).each do |c| 
-  #these seeds are adjusted for accuracy - not actual logic
-  period_length = 3 + Random.rand(4)
-  rest_length = 30 - period_length
+(1..3).each do |c|      # Creates 3 cycles, each 30 days in length
 
-  # User.all.each do |user|
+  period_length = 3 + Random.rand(4)     # Randomized period lengths (3-7 days)
+  rest_length = 30 - period_length      # Randomized rest-of-cycle lengths (23-27 days)
 
-    period_length.times do |i| 
-      # puts "Creating cycle #{c}, day #{i}"
+    period_length.times do |i|
+
       DailyRhythm.create({
         cycle_num: c,
         day_of_cycle: i+1,
@@ -55,12 +45,11 @@ days_into_history = 1
         user_id: u1.id})
 
       days_into_history += 1
+
     end
 
 
     rest_length.times do |i| 
-
-      # puts "Creating cycle #{c}, day #{i}"
 
       DailyRhythm.create({
         cycle_num: c,
@@ -75,8 +64,9 @@ days_into_history = 1
         pill: ['taken', 'missed', 'late', 'double'].sample,
         sex: ['unprotected', 'protected', 'withdraw', 'none'].sample,
         user_id: u1.id})
+
       days_into_history += 1
-    # end 
+
   end
 end
 

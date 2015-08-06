@@ -9,33 +9,54 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
 
-  # Auto-generated data: 
+  # CHECKS IF DB IS EMPTY: 
+  # (1) on_period?, (2) last_cycle & (3) last_day makes sure our program
+  # doesn't break if there are no previous DailyRhythm entries in our database
 
   def on_period?
     if daily_rhythms.count > 1
-      daily_rhythms.all[-1].period
+      daily_rhythms.all[-1].period    # returns 'true' if on period
     else
-      return false
+      return false 
     end
   end 
 
   def last_cycle
     if daily_rhythms.count > 1
-      daily_rhythms.all[-1].cycle_num
+      daily_rhythms.all[-1].cycle_num   # returns last cycle_num
     else
-      return 0
+      return 0  
     end
   end
 
   def last_day
     if daily_rhythms.count > 1
-      daily_rhythms.all[-1].day_of_cycle
+      daily_rhythms.all[-1].day_of_cycle  # returns last day_of_cycle
     else
       return 0
     end
   end
 
-  # Upcoming Cycle:
+  def day_of_cycle
+      if daily_rhythms.last.date != Date.today 
+        daily_rhythms.last.day_of_cycle + 1 
+      else
+        daily_rhythms.last.day_of_cycle
+      end
+  end
+
+  # ANALYTICS WITH DATA FROM CURRENT CYCLE: 
+
+  def first_day_of_period
+    daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
+  end
+
+  def last_day_of_period
+    current_cycle = self.daily_rhythms.last.cycle_num
+    self.daily_rhythms.where("cycle_num = ? and period = ?", current_cycle, true).last
+  end
+
+  # ANALYTICS FOR PREDICTED DATA:
 
   def fertile_window_start
     i = 1
@@ -70,21 +91,4 @@ class User < ActiveRecord::Base
     (total_days / daily_rhythms.last.cycle_num).to_i
   end
 
-  # Current Cycle: 
-  def day_of_cycle
-      if daily_rhythms.last.date != Date.today 
-        daily_rhythms.last.day_of_cycle + 1 
-      else
-        daily_rhythms.last.day_of_cycle
-      end
-  end
-
-  def first_day_of_period
-    daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
-  end
-
-  def last_day_of_period
-    curr_cycle = self.daily_rhythms.last.cycle_num
-    self.daily_rhythms.where("cycle_num = ? and period = ?", curr_cycle, true).last
-  end
 end

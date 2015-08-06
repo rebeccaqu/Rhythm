@@ -1,9 +1,10 @@
 $(document).ready(function(){
 
 function findNextDailyRhythmId(i) {
-  var id = gon.rhythm_ids[i];
-  return id;
-};
+    var id = gon.rhythm_ids[i];
+    return id;
+  };
+
 // Current Doughnut
 $(function(){
   var doughnutItems = [];
@@ -99,14 +100,7 @@ $(function(){
     });
   };
 
-  doughnutItems = doughnutItems.concat([
-    //{ title: "Period", value: gon.period_length, color: "#FC4349" },
-    //{ title: "Cycle", value : gon.cycle_window_one,  color: "#2C3E50" },
-    //{ title: "Fertile Window", value : gon.fertility_window,   color: "#F7E248" },
-    //{ title: "Cycle", value: gon.cycle_window_two,   color: "#2C3E50" },
-  ]);
-
-  $("#doughnutChart_avg").drawDoughnutChart(doughnutItems);
+  $("#doughnutChart_average").drawDoughnutChart(doughnutItems);
 
 });
 
@@ -226,7 +220,6 @@ $(function(){
     animationLoop(drawPieSegments);
 
     //Functions
-
     function getHollowCirclePath(doughnutRadius, cutoutRadius) {
         //Calculate values for the path.
         //We needn't calculate startRadius, segmentAngle and endRadius, because base doughnut doesn't animate.
@@ -347,6 +340,7 @@ $(function(){
     }
     return $this;
   };
+
 })(jQuery);
   
 });
