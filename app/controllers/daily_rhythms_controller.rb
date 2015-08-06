@@ -1,4 +1,4 @@
- class DailyRhythmsController < ApplicationController
+class DailyRhythmsController < ApplicationController
   before_filter :load_user
 
   def index

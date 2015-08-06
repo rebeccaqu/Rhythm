@@ -23,29 +23,32 @@ skip_before_filter :require_login, only: [:index, :new, :create]
   def show
     @user = User.find(params[:id])
 
+    if current_user.daily_rhythms.count > 0
 
-    # CURRENT CYCLE: 
-    gon.first_day = @user.first_day_of_period.day_of_cycle 
-    gon.last_day = @user.last_day_of_period.day_of_cycle
-    gon.period_length = gon.last_day
- 
-    gon.fertility_window = @user.fertile_window_end - @user.fertile_window_start
-    gon.cycle_window_one = @user.fertile_window_start - @user.last_day_of_period.day_of_cycle
-    gon.cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
+      if current_user.daily_rhythms.last.cycle_num > 3
 
-    current_cycle_num = @user.daily_rhythms.last.cycle_num
-    gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)
+        # AVERAGE CYCLE: 
+        gon.average_period_length = @user.avg_period
+        gon.average_cycle_window_one = @user.fertile_window_start - @user.avg_period
+        gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
+        gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end  
 
+        gon.fertility_window = @user.fertile_window_end - @user.fertile_window_start
+        gon.cycle_window_one = @user.fertile_window_start - @user.last_day_of_period.day_of_cycle
+        gon.cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
 
-    # AVERAGE CYCLE: 
+      end
 
-    gon.average_period_length = @user.avg_period
-    gon.average_cycle_window_one = @user.fertile_window_start - @user.avg_period
-    gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
-    gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
-    # 
-    # gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
-    # gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
+      # CURRENT CYCLE: 
+      gon.first_day = @user.first_day_of_period.day_of_cycle 
+      gon.last_day = @user.last_day_of_period.day_of_cycle
+      gon.period_length = gon.last_day
+   
+      current_cycle_num = @user.daily_rhythms.last.cycle_num
+      gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)
+
+    end
+
   end
 
   private

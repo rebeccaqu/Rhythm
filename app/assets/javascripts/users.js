@@ -21,7 +21,6 @@ $(function(){
     }
   }
 
-
   for (var i=0; i<gon.period_length; i++) {
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
