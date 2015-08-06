@@ -3,7 +3,6 @@ class DailyRhythmsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    # @daily_rhythm = @user.daily_rhythms
   end
 
   def new
@@ -20,7 +19,7 @@ class DailyRhythmsController < ApplicationController
     end
   end
 
-  def show
+  def show 
     @daily_rhythm = DailyRhythm.find(params[:id])
   end
 

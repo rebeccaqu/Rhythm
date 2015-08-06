@@ -25,7 +25,7 @@ skip_before_filter :require_login, only: [:index, :new, :create]
 
     if current_user.daily_rhythms.count > 0
 
-      if current_user.daily_rhythms.last.cycle_num > 3
+      if current_user.daily_rhythms.last.cycle_num > 2
 
         # AVERAGE CYCLE: 
         gon.average_period_length = @user.avg_period
@@ -48,7 +48,6 @@ skip_before_filter :require_login, only: [:index, :new, :create]
       gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)
 
     end
-
   end
 
   private

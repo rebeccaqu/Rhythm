@@ -8,14 +8,6 @@
       <%= f.radio_button :period, false %>
     </div>
 
-    <div class="field">
-      <%= f.label "Is this your first day of the cycle?" %>
-      <%= f.label :first_day_of_cycle, "Yes", :value => "true" %>
-      <%= f.radio_button :first_day_of_cycle, true %>
-      <%= f.label :first_day_of_cycle, "No", :value => "false" %>
-      <%= f.radio_button :first_day_of_cycle, false %>
-    </div>
-
     <div>
     <%= f.select :period_flow, [['light','light'],['medium','medium'],['heavy','heavy']] %>
     </div>
