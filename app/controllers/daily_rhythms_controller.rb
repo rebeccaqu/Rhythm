@@ -41,7 +41,7 @@
 
   private
   def daily_rhythm_params
-    params.require(:daily_rhythm).permit(:cycle_num, :date, :period, :period_flow, :bbt, :cervical_fluid, :pain, :mood, :pill, :sex)
+    params.require(:daily_rhythm).permit(:first_day_of_cycle, :cycle_num, :date, :period, :period_flow, :bbt, :cervical_fluid, :pain, :mood, :pill, :sex)
   end
 
   def load_user

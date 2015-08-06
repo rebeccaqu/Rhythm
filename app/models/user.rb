@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
   # ANALYTICS WITH DATA FROM CURRENT CYCLE: 
 
   def first_day_of_period
+    # daily_rhythms.where(first_day_of_cycle: true).order('cycle_num DESC').first
     daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
   end
 
@@ -62,7 +63,7 @@ class User < ActiveRecord::Base
     i = 1
     max_days = []
 
-    while i <= daily_rhythms.last.cycle_num
+    while i < daily_rhythms.last.cycle_num
       max_days << daily_rhythms.where(cycle_num: i).count
       i += 1
     end

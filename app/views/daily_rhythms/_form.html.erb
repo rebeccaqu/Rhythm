@@ -1,10 +1,19 @@
   <%= form_for ([@user, @daily_rhythm]) do |f| %>
 
     <div class="field">
+      <%= f.label "Are you on your period?" %>
       <%= f.label :period, "Yes", :value => "true"  %>
       <%= f.radio_button :period, true %>
       <%= f.label :period, "No", :value => "false" %>
       <%= f.radio_button :period, false %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Is this your first day of the cycle?" %>
+      <%= f.label :first_day_of_cycle, "Yes", :value => "true" %>
+      <%= f.radio_button :first_day_of_cycle, true %>
+      <%= f.label :first_day_of_cycle, "No", :value => "false" %>
+      <%= f.radio_button :first_day_of_cycle, false %>
     </div>
 
     <div>

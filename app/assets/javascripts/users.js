@@ -16,8 +16,11 @@ $(function(){
 
   function doughnutOnClick(e) {
     rid = $(e.toElement).attr('rhythmid');
-    window.location = '/users/' + user_id + '/daily_rhythms/' + rid + '/edit'
+    if(rid){
+      window.location = '/users/' + user_id + '/daily_rhythms/' + rid + '/edit'
+    }
   }
+
 
   for (var i=0; i<gon.period_length; i++) {
     doughnutItems.push({
@@ -28,7 +31,6 @@ $(function(){
     });
 
   }; 
-
 
   for (var i=0; i<gon.cycle_window_one; i++) {
     doughnutItems.push({
@@ -56,6 +58,10 @@ $(function(){
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
+
+  $('[rhythmid]').on('click', function(e) {
+    doughnutOnClick(e);
+  });
 
   $("#doughnutChart_current").drawDoughnutChart(doughnutItems);
 
