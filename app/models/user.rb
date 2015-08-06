@@ -53,8 +53,11 @@ class User < ActiveRecord::Base
   end
 
   def last_day_of_period
-    current_cycle = self.daily_rhythms.last.cycle_num
     self.daily_rhythms.where("cycle_num = ? and period = ?", current_cycle, true).last
+  end
+
+  def current_cycle
+    self.daily_rhythms.last.cycle_num
   end
 
   # ANALYTICS FOR PREDICTED DATA:
@@ -63,7 +66,7 @@ class User < ActiveRecord::Base
     i = 1
     max_days = []
 
-    while i < daily_rhythms.last.cycle_num
+    while i < current_cycle
       max_days << daily_rhythms.where(cycle_num: i).count
       i += 1
     end
@@ -76,20 +79,27 @@ class User < ActiveRecord::Base
   end
 
   def avg_period
-    total = daily_rhythms.where(period: true).count
-    total / daily_rhythms.maximum(:cycle_num)
+    past_cycle_period = daily_rhythms.where('period=? AND cycle_num < ?', true, current_cycle)
+    total = past_cycle_period.count
+    total / past_cycle_period.maximum(:cycle_num)
+  end
+  
+  def past_cycle_rhythms
+    daily_rhythms.where('cycle_num < ?', current_cycle)
   end
 
   def avg_cycle_length
     i = 1
     total_days = 0
 
-    while i <= daily_rhythms.last.cycle_num
+    while i < current_cycle
       total_days += daily_rhythms.where(cycle_num: i).count
       i += 1
     end
 
-    (total_days / daily_rhythms.last.cycle_num).to_i
+    last_cycle = current_cycle - 1
+
+    (total_days / last_cycle).to_i
   end
 
 end

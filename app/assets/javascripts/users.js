@@ -75,7 +75,7 @@ $(function(){
 
   for (var i=0; i<gon.average_period_length; i++) {
     doughnutItems.push({
-      title: "Period Length " + gon.period_length,
+      title: "Period Length " + gon.average_period_length,
       value: 1,
       color: "#FC4349"
     });

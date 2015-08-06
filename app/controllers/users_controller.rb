@@ -38,11 +38,14 @@ skip_before_filter :require_login, only: [:index, :new, :create]
 
 
     # AVERAGE CYCLE: 
+
     gon.average_period_length = @user.avg_period
+    gon.average_cycle_window_one = @user.fertile_window_start - @user.avg_period
     gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
-    gon.average_cycle_window_one = @user.fertile_window_start - @user.last_day_of_period.day_of_cycle
     gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
-    # binding.pry
+    # 
+    # gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
+    # gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
   end
 
   private
