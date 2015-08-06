@@ -1,21 +1,22 @@
 <div id = "calendar">
 	<%= calendar do |date| %> 
-
+		
 		<%= date.day %>
-
-		<% if date >= current_user.first_day_of_period.date && date <= current_user.last_day_of_period.date %>
+		
+		<% if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
+			puts 
 			<div class="actual_period">
 			actual period
 			</div>
 		<% end %>
 
-		<% if date >= current_user.first_day_of_period.date && date <= current_user.first_day_of_period.date + current_user.avg_period.days %>
+		<% if date >= @user.first_day_of_period.date && date <= @user.first_day_of_period.date + @user.avg_period.days %>
 			<div class="average_period">
 			predicted period
 			</div>
 		<% end %>
 
-		<% if date >= current_user.first_day_of_period.date + current_user.fertile_window_start && date <= current_user.first_day_of_period.date + current_user.fertile_window_end %>
+		<% if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
 			<div class="fertile_period">
 				fertile period
 			</div>

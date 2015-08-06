@@ -5,7 +5,7 @@ class DailyRhythm < ActiveRecord::Base
   # if date already exists, populate_rhythm_default doesn't get called
   # This precaution is to prevent the date, cycle_num and day_of_cycle from being re-populated
   # when a particular DailyRhythm is being updated
-  before_save :populate_rhythm_default, if: -> { self.date.blank? } 
+  # before_save :populate_rhythm_default, if: -> { self.date.blank? } 
 
   
   # Before each DailyRhythm is SAVED, populates each instance of DailyRhythm with:
