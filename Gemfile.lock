@@ -40,6 +40,9 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (4.2.3)
+      sass (~> 3.4)
+      thor
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -105,10 +108,6 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    rabl-rails (0.4.1)
-      activesupport (>= 3.1)
-      railties (>= 3.1)
-      thread_safe (~> 0.3.1)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -183,13 +182,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   gon
   jbuilder (~> 2.0)
   jquery-rails
   pg
   pry-byebug
   pry-rails
-  rabl-rails
   rails (= 4.2.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
