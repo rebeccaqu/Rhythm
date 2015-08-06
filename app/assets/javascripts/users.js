@@ -23,7 +23,7 @@ $(function(){
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
-      color: "#FC4349",
+      color: "#FF7A6C",
       onClick: function(e) {doughnutOnClick(e)}
     });
 
@@ -34,7 +34,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50",
+      color: "#728E99",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -43,7 +43,7 @@ $(function(){
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#F7E248",
+      color: "#44FFD1",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -52,7 +52,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50", 
+      color: "#728E99", 
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -116,11 +116,11 @@ $(function(){
       PI = Math.PI,
       settings = $.extend({
         segmentShowStroke : true,
-        segmentStrokeColor : "#0C1013",
-        segmentStrokeWidth : 1,
-        baseColor: "rgba(0,0,0,0.5)",
+        segmentStrokeColor : "", //segment border colour
+        segmentStrokeWidth : 1, //circle bkgd colour
+        baseColor: 'white',
         baseOffset: 4,
-        edgeOffset : 10,//offset from edge of $this
+        edgeOffset: 10,//offset from edge of $this
         percentageInnerCutout : 75,
         animation : true,
         animationSteps : 90,
@@ -130,7 +130,7 @@ $(function(){
         tipOffsetY: -45,
         tipClass: "doughnutTip",
         summaryClass: "doughnutSummary",
-        summaryTitle: "TOTAL:",
+        summaryTitle: "TOTAL DAYS:",
         summaryTitleClass: "doughnutSummaryTitle",
         summaryNumberClass: "doughnutSummaryNumber",
         beforeDraw: function() {  },
