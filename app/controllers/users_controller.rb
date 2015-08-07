@@ -64,6 +64,7 @@ skip_before_filter :require_login, only: [:index, :new, :create]
           @user_daily_rhythms.each do |daily_rhythm|
             event = Icalendar::Event.new
             event.dtstart = daily_rhythm.date 
+            event.summary = daily_rhythm.summary
             calendar.add_event(event)
             calendar.publish
           end 
