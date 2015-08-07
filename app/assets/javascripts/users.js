@@ -28,8 +28,17 @@ $(function(){
       color: "#FF9D92",
       onClick: function(e) {doughnutOnClick(e)}
     });
-
   }; 
+
+  // #CURRENT CYCLE
+  for (var i=0; i<gon.regular_day; i++) {
+    doughnutItems.push({
+      title: "", 
+      value: 1,  
+      color: "#72848C",
+      onClick: function(e) {doughnutOnClick(e)}
+    });
+  };
 
   for (var i=0; i<gon.cycle_window_one; i++) {
     doughnutItems.push({
@@ -39,6 +48,7 @@ $(function(){
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
+
 
   for (var i=0; i<gon.fertility_window; i++) {
     doughnutItems.push({
@@ -109,7 +119,7 @@ $(function(){
 
 });
 
-;(function($, undefined) {
+(function($, undefined) {
   $.fn.drawDoughnutChart = function(data, options) {
     var $this = this,
       W = $this.width(),

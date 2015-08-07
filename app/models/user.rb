@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # doesn't break if there are no previous DailyRhythm entries in our database
 
   def on_period?
-    if daily_rhythms.count > 1
+    if daily_rhythms.count >= 1
       daily_rhythms.all[-1].period    # returns 'true' if on period
     else
       return false 
@@ -22,15 +22,15 @@ class User < ActiveRecord::Base
   end 
 
   def last_cycle
-    if daily_rhythms.count > 1
-      daily_rhythms.all[-1].cycle_num   # returns last cycle_num
+    if daily_rhythms.count >= 1
+      daily_rhythms.all[-1].cycle_num   # returns last cycle_num DOES IT REALLy
     else
       return 0  
     end
   end
 
   def last_day
-    if daily_rhythms.count > 1
+    if daily_rhythms.count >= 1
       daily_rhythms.all[-1].day_of_cycle  # returns last day_of_cycle
     else
       return 0
@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
 
   def current_cycle
     self.daily_rhythms.last.cycle_num
+  end
+
+  def regular_day
+    self.daily_rhythms.where("cycle_num=? and period =?", current_cycle, false).count
   end
 
   # ANALYTICS FOR PREDICTED DATA:

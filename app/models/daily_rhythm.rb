@@ -1,11 +1,12 @@
 class DailyRhythm < ActiveRecord::Base
+  require 'icalendar'
   belongs_to :user
 
   # Method 1: DailyRhythm gets populated with default data only when date doesn't exist, 
   # if date already exists, populate_rhythm_default doesn't get called
   # This precaution is to prevent the date, cycle_num and day_of_cycle from being re-populated
   # when a particular DailyRhythm is being updated
-  # before_save :populate_rhythm_default, if: -> { self.date.blank? } 
+  before_save :populate_rhythm_default, if: -> { self.date.blank? } 
 
   
   # Before each DailyRhythm is SAVED, populates each instance of DailyRhythm with:
@@ -61,6 +62,7 @@ class DailyRhythm < ActiveRecord::Base
     event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
     # event.add_comment("AF83 - Shake your digital, we do WowWare")
     event
+    render :text => ical.to_ical, :layout => false
 end
 
 end
