@@ -1,10 +1,9 @@
 <div id = "calendar">
-	<%= calendar do |date| %> 
+	<%= calendar() do |date| %> 
 		
 		<%= date.day %>
 		
 		<% if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
-			puts 
 			<div class="actual_period">
 			actual period
 			</div>

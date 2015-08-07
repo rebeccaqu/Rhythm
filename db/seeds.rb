@@ -69,6 +69,8 @@ days_into_history = 1     # Sets first day as 1 instead of 0 (default)
   end
 end
 
+startdate2 = 60.days.ago   # Since we have 90 days in total: 60 days are past, 30 days are future
+days_into_history = 1 
 
 (1..3).each do |c|      # Creates 3 cycles, each 30 days in length
 
@@ -80,7 +82,7 @@ end
       DailyRhythm.create({
         cycle_num: c,
         day_of_cycle: i+1,
-        date: startdate + days_into_history.days,
+        date: startdate2 + days_into_history.days,
         period: true, 
         period_flow: [:light, :medium, :heavy].sample,
         bbt:  rand(97.7..98.7),
@@ -100,7 +102,7 @@ end
       DailyRhythm.create({
         cycle_num: c,
         day_of_cycle: i + 1 + period_length,
-        date: startdate + days_into_history.days,
+        date: startdate2 + days_into_history.days,
         period: false, 
         period_flow: [:light, :medium, :heavy].sample,
         bbt:  rand(97.7..98.7),

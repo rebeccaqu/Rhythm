@@ -4,6 +4,18 @@ class DailyRhythmsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @daily_rhythms = @user.daily_rhythms
+   
+    respond_to do |format|
+      format.html
+      format.ics do
+        calendar = Icalendar::Calender.new
+        @user.period_and_fertile_days.each do |dr|
+          calendar.add_event(dr.to_ics)
+        end
+        c.publish
+        render text: calendar.to_ical
+      end
+    end
   end
 
   def new

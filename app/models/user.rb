@@ -102,4 +102,10 @@ class User < ActiveRecord::Base
     (total_days / last_cycle).to_i
   end
 
+  def period_and_fertile_days
+    daily_rhythms.select do |dr|
+      dr.on_period || (dr.day_of_cycle >= fertile_window_start && dr.day_of_cycle <= fertile_window_end)
+    end
+  end
+
 end
