@@ -7,7 +7,8 @@
 		<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
 	<% else %>	
 		<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %> |
-		<%= link_to 'Your History', user_daily_rhythms_path(@user) %>
+		<%= link_to 'Your History', user_daily_rhythms_path(@user) %> |
+		<%= link_to 'Export Rhythm to iCal',  download_ical_user_path(@user, format: :ics) %>
 	<% end %>
 </div>
 
@@ -15,6 +16,7 @@
 <div id="doughnutChart_average" class="chart"></div>
 
 <% if false %>
+
 <div class="analytics">
 	<h3>CURRENT CYCLE: </h3>
 	<p>Today's Date: <%= Date.today %></p>
