@@ -42,7 +42,7 @@ gem 'gon'
 
 gem 'bourbon'
 
-gem 'icalendar', '~> 2.3.0'
+gem 'icalendar'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -51,6 +51,7 @@ class DailyRhythm < ActiveRecord::Base
   end
 
   def to_ics
+
     event = Icalendar::Event.new
     event.start = self.date.strftime("%Y%m%d")
     event.end = self.date.strftime("%Y%m%d")
@@ -62,7 +63,6 @@ class DailyRhythm < ActiveRecord::Base
     event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
     # event.add_comment("AF83 - Shake your digital, we do WowWare")
     event
-    render :text => ical.to_ical, :layout => false
-end
+  end
 
 end

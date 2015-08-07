@@ -176,7 +176,7 @@ PLATFORMS
 DEPENDENCIES
   bourbon
   gon
-  icalendar (~> 2.3.0)
+  icalendar
   jbuilder (~> 2.0)
   jquery-rails
   pg

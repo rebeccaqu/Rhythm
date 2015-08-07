@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   post 'logout' => 'sessions#destroy', :as => :logout
 
   resources :users, only: [:index, :new, :create, :show] do 
+    
+    member do
+      get 'download_ical'
+    end
+    
     resources :daily_rhythms, only: [:index, :new, :create, :show, :edit, :update]
   end
 

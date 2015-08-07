@@ -52,6 +52,27 @@ skip_before_filter :require_login, only: [:index, :new, :create]
     end
   end
 
+  def download_ical
+
+     @daily_rhythm = DailyRhythm.find(params[:id])
+
+     @user_daily_rhythms = DailyRhythm.all
+
+      respond_to do |format|
+        format.ics do 
+          calendar = Icalendar::Calendar.new
+          @user_daily_rhythms.each do |daily_rhythm|
+            event = Icalendar::Event.new
+            event.dtstart = daily_rhythm.date 
+            calendar.add_event(event)
+            calendar.publish
+          end 
+          render :text => calendar.to_ical          
+        end
+      end
+
+  end
+
   private
 
   def user_params
