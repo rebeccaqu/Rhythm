@@ -29,8 +29,7 @@ class DailyRhythm < ActiveRecord::Base
 
   end
 
-  def ics_summary
-    if on_period? 
+  def ics_comment_period
     " ____
      /     \
     | () () |
@@ -38,7 +37,9 @@ class DailyRhythm < ActiveRecord::Base
       |||||
       ||||| 
       "
-     else
+  end
+
+  def ics_comment_fertile
       "
       .-*)) `*-.
      /*  ((*   *'.
@@ -47,22 +48,37 @@ class DailyRhythm < ActiveRecord::Base
      \  *))  *  .'
       '-.((*_.-'
   "
-    end
   end
 
   def to_ics
+    if on_period?
 
     event = Icalendar::Event.new
     event.start = self.date.strftime("%Y%m%d")
     event.end = self.date.strftime("%Y%m%d")
-    event.summary = ics_summary
+    # event.summary = ics_comment_period
     event.description = self.summary
     event.klass = "PUBLIC"
     # event.created = self.created_at
     # event.last_modified = self.updated_at
     event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
-    # event.add_comment("AF83 - Shake your digital, we do WowWare")
+    event.add_comment = ics_comment_period
     event
+
+    else
+
+    event = Icalendar::Event.new
+    event.start = self.date.strftime("%Y%m%d")
+    event.end = self.date.strftime("%Y%m%d")
+    # event.summary = ics_comment_fertile
+    event.description = self.summary
+    event.klass = "PUBLIC"
+    # event.created = self.created_at
+    # event.last_modified = self.updated_at
+    event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
+    event.add_comment = ics_comment_fertile
+
+    end
   end
 
 end

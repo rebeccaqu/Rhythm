@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-skip_before_filter :require_login, only: [:index, :new, :create]
+skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   
   def index
   end
@@ -44,7 +44,7 @@ skip_before_filter :require_login, only: [:index, :new, :create]
       gon.last_day = @user.last_day_of_period.day_of_cycle
       gon.period_length = gon.last_day
 
-      gon.regular_day = @user.regular_day
+      # gon.regular_day = @user.regular_day
    
       current_cycle_num = @user.daily_rhythms.last.cycle_num
       gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)
@@ -54,8 +54,6 @@ skip_before_filter :require_login, only: [:index, :new, :create]
 
   def download_ical
 
-     @daily_rhythm = DailyRhythm.find(params[:id])
-
      @user_daily_rhythms = DailyRhythm.all
 
       respond_to do |format|
@@ -64,7 +62,6 @@ skip_before_filter :require_login, only: [:index, :new, :create]
           @user_daily_rhythms.each do |daily_rhythm|
             event = Icalendar::Event.new
             event.dtstart = daily_rhythm.date 
-            event.summary = daily_rhythm.summary
             calendar.add_event(event)
             calendar.publish
           end 
