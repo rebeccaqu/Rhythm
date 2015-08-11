@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "users/registrations"}
 
+  resources :friendships, only: [:create, :update, :destroy]
+
   resources :users do 
     member do
       get 'download_ical'

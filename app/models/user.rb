@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :daily_rhythms
+  has_many :physicians, :through => :friendships  -> { where accepted: true }
+  has_many :requested_physicians, class_name: 'Physician', :through => :friendships, source: :physician,  -> { where accepted: false }
+  has_many :friendships
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true

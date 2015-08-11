@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   
   def index
+
+    @users = User.all
+
   end
 
   def new
