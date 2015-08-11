@@ -2,23 +2,19 @@ Rails.application.routes.draw do
 
   root :to => 'users#index'
 
-  devise_for :physicians
+  devise_for :physicians, :controllers => {:registrations => "physicians/registrations"}
 
-  devise_for :users 
-
-  # devise_scope :user do
-  #     get 'sign_in', :to => 'devise/sessions#new', :as => :new_session
-  #     post 'sign_in', :to => 'devise/session#create', :as => :session
-  #     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_session
-  # end
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   resources :users do 
     member do
       get 'download_ical'
     end
     
-    resources :daily_rhythms, only: [:index, :new, :create, :show, :edit, :update]
+    resources :daily_rhythms
   end
+
+  #resources :physicians 
 
 
   # The priority is based upon order of creation: first created -> highest priority.

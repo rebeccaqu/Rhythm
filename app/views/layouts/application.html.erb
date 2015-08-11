@@ -14,22 +14,25 @@
   <div id="nav">
     <p class="navbar-text pull-right">
 
-    <% if user_signed_in? %>
+    <% if current_user %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
+    <% elsif current_physician %>
+      Logged in as <strong><%= current_physician.email %></strong>
+      <!--<%#=link_to 'Edit profile', edit_physician_path, :class => 'navbar-link' %> |-->
+      <%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %>
+    
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Physician Sign Up", new_physician_registration_path %> |
+      <%= link_to "Physician Sign In", new_physician_session_path %>
     <% end %>
+
+
   </div>
-
-
-
-
-
-
-
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
