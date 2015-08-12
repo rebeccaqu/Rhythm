@@ -34,7 +34,7 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
         gon.average_fertility_window_length = @user.fertile_window_end - @user.fertile_window_start
         gon.average_cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end  
 
-        gon.fertility_window = @user.fertile_window_end - @user.fertile_window_start
+        gon.fertility_window = @user.fertile_window_end - @uxser.fertile_window_start
         gon.cycle_window_one = @user.fertile_window_start - @user.last_day_of_period.day_of_cycle
         gon.cycle_window_two = @user.avg_cycle_length - @user.fertile_window_end
 
@@ -94,32 +94,4 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
  def user_params
    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, daily_rhythms_attributes: [:period, :period_flow, :cervical_fluid, :pain, :mood, :pill, :sex] ) 
  end
-end
-
-  def download_ical
-
-    @user = User.find(params[:id])
-
-     @user_daily_rhythms = @user.daily_rhythms
-
-      respond_to do |format|
-        format.ics do 
-          calendar = Icalendar::Calendar.new
-          @user_daily_rhythms.each do |daily_rhythm|
-            event = Icalendar::Event.new
-            event.dtstart = daily_rhythm.date 
-            calendar.add_event(event)
-            calendar.publish
-          end 
-          render :text => calendar.to_ical          
-        end
-      end
-
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, daily_rhythms_attributes: [:period, :period_flow, :cervical_fluid, :pain, :mood, :pill, :sex] ) 
-  end
 end
