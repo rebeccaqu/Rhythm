@@ -30,18 +30,17 @@ class User < ActiveRecord::Base
     end
   end 
 
-  # def fertile?
-  #   if (date >= daily_rhythms.first_day_of_period.date + daily_rhythms.fertile_window_start) 
-  #     && (date <= daily_rhythms.first_day_of_period.date + daily_rhythms.fertile_window_end)
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
+  def fertile?(date)
+    if (date > first_day_of_period.date + fertile_window_start) && ( date <= first_day_of_period.date + fertile_window_end)
+      true
+    else
+      false
+    end
+  end
 
   def last_cycle
     if daily_rhythms.count >= 1
-      daily_rhythms.all[-1].cycle_num   # returns last cycle_num DOES IT REALLy
+      daily_rhythms.all[-1].cycle_num   # returns last cycle_num 
     else
       return 0  
     end

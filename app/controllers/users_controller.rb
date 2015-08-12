@@ -53,25 +53,13 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
     end
   end
 
-  def ics_summary(adate)
+  def ics_summary(date)
     @user = User.find(params[:id])
-    if @user.daily_rhythms.where("date=? and period=?", adate, true).any?
-    " ____
-     /     \
-    | () () |
-     \  ^  /
-      |||||
-      ||||| 
-      "
-  #   elsif @user.fertile?
-  #     "
-  #     .-*)) `*-.
-  #    /*  ((*   *'.
-  #   |   *))  *   *\
-  #   | *  ((*   *  /
-  #    \  *))  *  .'
-  #     '-.((*_.-'
-  # "
+
+    if @user.daily_rhythms.where("date=? and period=?", date, true).any?
+    "on period"
+    elsif @user.fertile?(date) 
+      "fertile"
      else
     ""
     end
