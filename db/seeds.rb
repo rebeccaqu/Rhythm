@@ -10,7 +10,7 @@ u1 = User.create({
   password_confirmation: "password"
 })
 
-startdate = 80.days.ago   # Since we have 90 days in total: 60 days are past, 30 days are future
+startdate = 60.days.ago   # Since we have 90 days in total: 60 days are past, 30 days are future
 days_into_history = 1     # Sets first day as 1 instead of 0 (default)
 
 

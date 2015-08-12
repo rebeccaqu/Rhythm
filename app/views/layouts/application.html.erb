@@ -12,22 +12,34 @@
   <body>
 
   <div id="nav">
-      <% if current_user %>
+    <p class="navbar-text pull-right">
 
-        <%= link_to "Logout", :logout, method: :post %>
+    <% if current_user %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
-      <% else %>
+    <% elsif current_physician %>
+      Logged in as <strong><%= current_physician.email %></strong>
+      <!--<%#=link_to 'Edit profile', edit_physician_path, :class => 'navbar-link' %> |-->
+      <%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %>
+    
+    <% else %>
+      <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Physician Sign Up", new_physician_registration_path %> |
+      <%= link_to "Physician Sign In", new_physician_session_path %>
+    <% end %>
 
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
 
-      <% end %>
-    </div>
+  </div>
 
-    <div>
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
     <%= yield %>
 

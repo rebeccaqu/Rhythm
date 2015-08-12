@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-skip_before_filter :require_login, only: [:index, :new, :create]
+skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   
   def index
   end
@@ -77,7 +77,8 @@ skip_before_filter :require_login, only: [:index, :new, :create]
   end
 
   def download_ical
-     @user_daily_rhythms = self.DailyRhythm.all
+
+     @user_daily_rhythms = DailyRhythm.all
 
       respond_to do |format|
         format.ics do 
