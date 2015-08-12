@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
+
   devise_for :physicians, controllers: {registrations: "physicians/registrations"}
 
   devise_for :users, controllers: {registrations: "users/registrations"}
@@ -12,11 +13,13 @@ Rails.application.routes.draw do
   resources :physicians 
 
   resources :users do 
+
     member do
       get 'download_ical'
     end
     
     resources :daily_rhythms
+    
   end
 
   resources :friendships, only: [:create, :update, :destroy]
