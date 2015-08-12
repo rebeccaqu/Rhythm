@@ -3,9 +3,7 @@ class UsersController < ApplicationController
 skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   
   def index
-
     @users = User.all
-
   end
 
   def new
@@ -57,7 +55,7 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
 
   def ics_summary(adate)
     @user = User.find(params[:id])
-    if @user.daily_rhythms.where("date=? and period=?", adate, true)
+    if @user.daily_rhythms.where("date=? and period=?", adate, true).any?
     " ____
      /     \
     | () () |
@@ -80,8 +78,8 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   end
 
   def download_ical
-
-     @user_daily_rhythms = DailyRhythm.all
+     @user = User.find(params[:id])   
+     @user_daily_rhythms = @user.daily_rhythms
 
       respond_to do |format|
         format.ics do 

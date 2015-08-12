@@ -6,7 +6,7 @@ class Physician < ActiveRecord::Base
 
   has_many :users, through: :friendships
   has_many :friendships
-  has_many :pending_users, class_name: 'User', through: :friendships, source: :user
+  has_many :pending_users, -> { where(accepted: true) }, class_name: 'User', through: :friendships, source: :user
 
 end
 
