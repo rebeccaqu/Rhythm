@@ -1,6 +1,15 @@
 
 User.destroy_all()
 DailyRhythm.destroy_all()
+Physician.destroy_all()
+
+p1 = Physician.create({
+  first_name: "Doctor",
+  last_name: "Bobbi",
+  email: "Bobbi@iamdoctor.com",
+  password: "password", 
+  password_confirmation: "password"
+})
 
 u1 = User.create({
   first_name: "Aysha",

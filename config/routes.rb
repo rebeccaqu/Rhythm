@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
     
     resources :daily_rhythms
-    
+
   end
 
   resources :friendships, only: [:create, :update, :destroy]

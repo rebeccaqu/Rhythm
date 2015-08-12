@@ -3,9 +3,7 @@ class UsersController < ApplicationController
 skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   
   def index
-
     @users = User.all
-
   end
 
   def new
@@ -55,9 +53,54 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
     end
   end
 
+  def ics_summary(adate)
+
+    @user = User.find(params[:id])
+
+    if @user.daily_rhythms.where("date=? and period=?", adate, true).any?
+      "on period"
+  
+    elsif @user.fertile?
+      "fertile"
+      
+    else
+      " "
+    end
+
+  end
+
+ def download_ical
+    @user = User.find(params[:id])   
+    @user_daily_rhythms = @user.daily_rhythms
+
+     respond_to do |format|
+       format.ics do 
+         calendar = Icalendar::Calendar.new
+         @user_daily_rhythms.each do |daily_rhythm|
+           event = Icalendar::Event.new
+           event.dtstart = daily_rhythm.date 
+           event.summary = ics_summary(daily_rhythm.date)
+           calendar.add_event(event)
+           calendar.publish
+         end 
+         render :text => calendar.to_ical          
+       end
+     end
+
+ end
+
+ private
+
+ def user_params
+   params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, daily_rhythms_attributes: [:period, :period_flow, :cervical_fluid, :pain, :mood, :pill, :sex] ) 
+ end
+end
+
   def download_ical
 
-     @user_daily_rhythms = DailyRhythm.all
+    @user = User.find(params[:id])
+
+     @user_daily_rhythms = @user.daily_rhythms
 
       respond_to do |format|
         format.ics do 
