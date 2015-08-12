@@ -4,7 +4,7 @@ class Physician < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :users, :through => :friendships  -> { where accepted: true}
-  has_many :pending_users, class_name: 'User', :through => :friendships, source: :user -> { where accepted: false}
+  has_many :users, through: :friendships, -> { where accepted: true }
   has_many :friendships
+  has_many :pending_users, class_name: 'User', through: :friendships, source: :user, -> { where accepted: false }
 end

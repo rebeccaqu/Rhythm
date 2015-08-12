@@ -20,6 +20,11 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    @friendship.destroy
+  end
+
   private
   def friendship_params 
     params.require(:friendship).permit(:physician_id)
