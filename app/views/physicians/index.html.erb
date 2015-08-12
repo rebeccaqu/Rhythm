@@ -1,0 +1,8 @@
+<div id = "physicians">
+<% for physician in @physicians %>
+  <strong><%= physician.first_name %> <%=physician.last_name %></strong>
+    <p>
+    <%= link_to "Add physician" %>
+    </p>
+<% end %>
+</div>

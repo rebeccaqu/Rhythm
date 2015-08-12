@@ -1,21 +1,28 @@
 Rails.application.routes.draw do
 
-  root :to => 'users#index'
+  root :to => 'home#index'
 
-  devise_for :physicians, :controllers => {:registrations => "physicians/registrations"}
+  resources :home, only: [:index]
 
-  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
+  devise_for :physicians, controllers: {registrations: "physicians/registrations"}
+
+  devise_for :users, controllers: {registrations: "users/registrations"}
+
+
+  resources :physicians 
 
   resources :users do 
+
     member do
       get 'download_ical'
     end
     
     resources :daily_rhythms
+    
   end
 
-  #resources :physicians 
-
+  resources :friendships, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
