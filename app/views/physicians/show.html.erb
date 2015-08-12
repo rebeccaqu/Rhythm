@@ -1,4 +1,14 @@
+<h1>Pending Friendships</h1>
 
-<%= @users.each do |user| %>
-<%= user.first_name %>
+<% @friendships.each do |friend| %>
+
+  <% if friend.accepted == true %>
+    <%= friend.user_id %>
+  <% else %>
+  <p>
+    <%= friend.user_id %> 
+    <%= button_to "Accept Patient", friendship_path(friendship: {:accepted => true}), method: :patch %>
+    </p>
+  <% end %>
+
 <% end %>
