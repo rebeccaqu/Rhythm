@@ -1,3 +1,4 @@
+
 <div id = "physicians">
 	<% @physicians.each do |physician| %>
 	  <%= physician.first_name %> <%= physician.last_name %> |
@@ -6,14 +7,3 @@
 	<% end %>
 </div>
 
-
-
-<% if false %>
-FIGURE THIS OUT: 
-
- <%= form_for Friendship.new do |f| %>
-      <%= f.hidden_field :physician, physician %>
-      <%= f.submit "Add physician" %>
-    <% end %>
-
-<% end %>

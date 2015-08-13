@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
   private
   def friendship_params 
     # params[:friendship][:physician_id]
-    params.require(:friendship).permit(:physician_id)
+    params.require(:friendship).permit(:physician_id, :user_id)
   end
 
 end
