@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :requested_physicians, -> { where(accepted: false) }, class_name: 'Physician', through: :friendships, source: :physician
 
+  has_many :records
+
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true

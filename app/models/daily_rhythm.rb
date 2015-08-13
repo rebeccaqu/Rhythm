@@ -1,5 +1,9 @@
 class DailyRhythm < ActiveRecord::Base
   require 'icalendar'
+
+  extend SimpleCalendar
+  has_calendar
+
   belongs_to :user
 
   # Method 1: DailyRhythm gets populated with default data only when date doesn't exist, 
@@ -11,6 +15,10 @@ class DailyRhythm < ActiveRecord::Base
   
   # Before each DailyRhythm is SAVED, populates each instance of DailyRhythm with:
   # (1) Today's Date, (2) Cycle Num, (3) Day of Cycle
+
+  def starts_at
+    return date
+  end
 
   def populate_rhythm_default
     # return if self.date.present? # Method 2

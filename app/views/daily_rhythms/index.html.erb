@@ -1,14 +1,45 @@
-<%= month_calendar do |date| %>
-  <%= date %>
+<div class = "header"> <%= link_to 'Back', user_path(@user) %> </div>
+
+<table class="bordered_table">
+<tbody>
+<tr>
+<%= month_calendar events: @daily_rhythms do |date, daily_rhythms| %>
+	
+  <p> <%= date.day %> </p>
+
+  <% daily_rhythms.each do |daily_rhythm| %>
+
+  	<%= number_with_precision(daily_rhythm.bbt, :precision => 2) %> C
+  	<div class="cf"> <%= daily_rhythm.cervical_fluid %> </div>
+
+    <% if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
+		<div class="actual_period">
+			actual period
+		</div>	
+	<% end %>
+
+	<% if date >= @user.first_day_of_period.date && date <= @user.first_day_of_period.date + @user.avg_period.days %>
+		<div class="average_period">
+			predicted period
+		</div>
+	<% end %>
+
+	<% if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
+		<div class="fertile_period">
+			fertile period
+		</div>
+	<% end %>
+  <% end %>
+	
 <% end %>
-
-
-
+</tr>
+</tbody>
+</table>
 
 <!-- <div id = "calendar">
 	<%#= calendar() do |date| %> 
 		
-		<%= date.day %>
+		<%#= date.day %>
 		
 		<%# if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
 			<div class="actual_period">
@@ -31,7 +62,6 @@
 	<%# end %>
 </div> -->
 
-	<% end %>
-</div>
+	<%# end %>
+<!-- </div> -->
 
-<%= link_to 'Back', user_path(@user) %>
