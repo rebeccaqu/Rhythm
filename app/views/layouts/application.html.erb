@@ -2,14 +2,17 @@
 <html>
   <head>
     <title>Rhythm</title>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <%= include_gon %>  
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
+
+  <% if controller_name == "home" && action_name == "index" %>
+    <%= yield %>
+  <% end %>
 
   <div id="nav">
     <p class="navbar-text pull-right">
@@ -25,13 +28,11 @@
       <%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %>
     
     <% else %>
-      <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
       <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
-      <%= link_to "Physician Sign Up", new_physician_registration_path %> |
+      <%= link_to "Physician Sign Up", new_physician_registration_path %> 
       <%= link_to "Physician Sign In", new_physician_session_path %>
     <% end %>
-
-
   </div>
 
     <% if notice %>
@@ -41,7 +42,9 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
+  <% unless controller_name == "home" && action_name == "index" %>
     <%= yield %>
+  <% end %>
 
   </body>
 </html>
