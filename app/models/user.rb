@@ -9,9 +9,6 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :requested_physicians, -> { where(accepted: false) }, class_name: 'Physician', through: :friendships, source: :physician
 
-  # -> { where accepted: true }
-  # -> { where accepted: false }
-
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
@@ -65,7 +62,6 @@ class User < ActiveRecord::Base
   # ANALYTICS WITH DATA FROM CURRENT CYCLE: 
 
   def first_day_of_period
-    # daily_rhythms.where(first_day_of_cycle: true).order('cycle_num DESC').first
     daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
   end
 

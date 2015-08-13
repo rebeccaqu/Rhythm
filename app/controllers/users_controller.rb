@@ -45,7 +45,7 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
       gon.last_day = @user.last_day_of_period.day_of_cycle
       gon.period_length = gon.last_day
 
-      gon.regular_day = @user.regular_day
+      # gon.regular_day = @user.regular_day
    
       current_cycle_num = @user.daily_rhythms.last.cycle_num
       gon.rhythm_ids = @user.daily_rhythms.where({cycle_num: current_cycle_num}).order(:day_of_cycle).map(&:id)

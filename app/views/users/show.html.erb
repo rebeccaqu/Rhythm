@@ -9,7 +9,7 @@
 		<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %> |
 		<%= link_to 'Your History', records_path %> |
 		<%= link_to 'Export Rhythm to iCal',  download_ical_user_path(@user, format: :ics) %> |
-		<%= link_to 'Physicians', physicians_path(@physicians) %>
+		<%= link_to 'Physicians', physicians_path %>
 	<% end %>
 </div>
 
