@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :records
   root :to => 'home#index'
 
   resources :home, only: [:index]

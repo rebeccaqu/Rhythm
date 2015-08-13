@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if current_user
       user_path(current_user) || stored_location_for(resource) || root_path
     else
-      users_path || stored_location_for(resource) || root_path
+      physician_path(current_physician) || stored_location_for(resource) || root_path
     end
   end
 

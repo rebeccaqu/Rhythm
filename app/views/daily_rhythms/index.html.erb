@@ -1,25 +1,33 @@
-<div id = "calendar">
-	<%= calendar() do |date| %> 
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+
+
+
+
+<!-- <div id = "calendar">
+	<%#= calendar() do |date| %> 
 		
 		<%= date.day %>
 		
-		<% if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
+		<%# if date >= @user.first_day_of_period.date && date <= @user.last_day_of_period.date %>
 			<div class="actual_period">
 			actual period
 			</div>
-		<% end %>
+		<%# end %>
 
-		<% if date >= @user.first_day_of_period.date && date <= @user.first_day_of_period.date + @user.avg_period.days %>
+		<%# if date >= @user.first_day_of_period.date && date <= @user.first_day_of_period.date + @user.avg_period.days %>
 			<div class="average_period">
 			predicted period
 			</div>
-		<% end %>
+		<%# end %>
 
-		<% if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
+		<%# if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
 			<div class="fertile_period">
 				fertile period
 			</div>
-		<% end %>
+		<%# end %>
 
-	<% end %>
-</div>
+	<%# end %>
+</div> -->
+
