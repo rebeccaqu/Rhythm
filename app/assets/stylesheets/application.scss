@@ -1,0 +1,42 @@
+@import "bourbon";
+@import "daily_rhythms";
+@import "users";
+@import "welcome";
+@import "sessions";
+@import "home";
+
+body {
+
+}
+
+body.home.index {
+  padding-top: 200px;
+
+  h1 {
+    text-align: center;
+  }
+
+  #nav p {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      border: 3px solid black;
+      color: black;
+      padding: 4px 8px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: orange;
+    }
+  }
+}
+
+// body.home.index h1 {
+//   text-align: center;
+// }
+
+// body.home.index #nav p {
+//   text-align: center;
+// }
