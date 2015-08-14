@@ -3,7 +3,7 @@
 </div>
 
 <div class ="buttons">
-	<% if current_user.daily_rhythms.count == 0 %>
+	<% if @user.daily_rhythms.count == 0 %>
 		<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
 	<% else %>	
 		<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %> |

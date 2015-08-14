@@ -24,9 +24,9 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   def show
     @user = User.find(params[:id])
 
-    if current_user.daily_rhythms.count > 0
+    if @user.daily_rhythms.count > 0
 
-      if current_user.daily_rhythms.last.cycle_num > 2
+      if @user.daily_rhythms.last.cycle_num > 2
 
         # AVERAGE CYCLE: 
         gon.average_period_length = @user.avg_period

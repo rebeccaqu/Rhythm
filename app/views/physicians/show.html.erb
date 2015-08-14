@@ -3,7 +3,7 @@
 <% @friendships.each do |friendship| %>
   <% if friendship.accepted == true %>
     <%= friendship.user.first_name %> <%= friendship.user.last_name %>
-    <%#= link_to 'See Patient\'s Rhythm', user_path(@user) %>
+    <%= link_to 'See Patient\'s Rhythm', user_daily_rhythms_path(friendship.user) %>
   <% end %>
 <% end %>
 
