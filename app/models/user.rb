@@ -29,13 +29,13 @@ class User < ActiveRecord::Base
     end
   end 
 
-  def fertile?(date)
-    if (date > first_day_of_period.date + fertile_window_start) && ( date <= first_day_of_period.date + fertile_window_end)
-      true
-    else
-      false
-    end
-  end
+  # def fertile?(date)
+  #   if (date > first_day_of_period.date + fertile_window_start) && ( date <= first_day_of_period.date + fertile_window_end)
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
   def last_cycle
     if daily_rhythms.count >= 1
@@ -62,6 +62,16 @@ class User < ActiveRecord::Base
   end
 
   # ANALYTICS WITH DATA FROM CURRENT CYCLE: 
+
+  def period_starts 
+    i = 1
+    period_begs = []
+    while i <= daily_rhythms.last.cycle_num
+      period_begs << daily_rhythms.where("cycle_num=?", i).first.date
+      i += 1
+    end
+    period_begs
+  end
 
   def first_day_of_period
     daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
@@ -120,15 +130,6 @@ class User < ActiveRecord::Base
 
     (total_days / last_cycle).to_i
   end
-
-  # HISTORY
-
-  # def fertile_windows
-  #   if daily_rhythms.where('period=?, day_of_cycle=?', true, 1) == true
-      
-  # end
-    
-
   # def period_and_fertile_days
   #   daily_rhythms.select do |dr|
   #     dr.on_period || (dr.day_of_cycle >= fertile_window_start && dr.day_of_cycle <= fertile_window_end)

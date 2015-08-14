@@ -23,29 +23,25 @@
 				</div>	
 			<% end %>
 
-			<%# if (daily_rhythm.period == true && daily_rhythm.day_of_cycle == 1) %>
-
-
-			<% if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
-				<div class="fertile_period">
-					fertile period
-				</div>
+			
+			<% @user.period_starts.each do |fp| %>
+				<% if (date >= fp + @user.fertile_window_start)&&(date <= fp + @user.fertile_window_end) %>
+					<div class="fertile_period">
+						fertile period
+					</div>
+				<% end %>
 			<% end %>
 
 
-			<% if date >= @user.first_day_of_period.date && date <= @user.first_day_of_period.date + @user.avg_period.days %>
-				<div class="average_period">
-					avg. period
-				</div>
-			<% end %>
+			<% @user.period_starts.each do |ap| %>
+				<% if (date >= ap)&&(date <= ap + @user.avg_period.days) %>
+					<div class="average_period">
+						avg. period
+					</div>
+				<% end %>
+			<% end %> 
 
-			<% if date >= @user.first_day_of_period.date + @user.fertile_window_start && date <= @user.first_day_of_period.date + @user.fertile_window_end %>
-				<div class="fertile_period">
-					fertile period
-				</div>
-			<% end %>
-		<% end %>
-		
+		<% end %>	
 	<% end %>
 	</tr>
 	</tbody>
