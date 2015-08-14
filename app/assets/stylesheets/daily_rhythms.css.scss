@@ -1,8 +1,7 @@
-
-.header {
-  text-align: left;
-  padding-bottom: 20px;
-}
+// .header {
+//   text-align: left;
+//   padding-bottom: 20px;
+// }
 
 table {
   text-align: center;
@@ -20,8 +19,9 @@ td,th {
 
 th {
   text-align: left;
-  background: #DDD;
-  color: #666;
+  font-weight: bold;
+  background: #36717D;
+  color: #1A1A1A;
   text-align: center;
   width: 14.2857142857143%;
 }
@@ -33,75 +33,98 @@ td {
   vertical-align: top;
   font-size: 16px;
   padding: 0px;
+  height: 120px;
 }
 
-p {
+p.date {
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 6px;
   text-align: left;
-  font-size: 17px;
+  font-size: 18px;
   padding-bottom: 2px;
   font-weight: bold;
 }
 
-.cf {
-
+header.calendar-header {
+  text-align: center;
+  padding-bottom: 5px;
 }
 
-.predicted_period {
+header.calendar-header a {
+  color: #0000CC;
+  font-size: 30px;
+  padding-bottom: 3px;
+}
+
+header.calendar-header span {
+  font-size: 23px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+div.daily_info {
+  padding: 2px;
+  color: #22474F
+  // background-color: #44C9E5;
+}
+
+div.actual_period {
   position: relative;
-  background-color: #FF8080;
+  background-color: #941C19;
   height: 25px;
   margin: 0px; 
-  color: #000066;
+  padding-top: 2px;
   text-align: center;
+  color: #333333;
+  padding-top: 4px;
 }
 
-#calendar td .average_period {
-  background-color: #f00;
+div.average_period {
+  background-color: #D9226B;
   height: 25px;
   margin: 0px; 
-  color: #000066;
   text-align: center;
+  color: #333333;
+  padding-top: 4px; 
 }
 
-#calendar td .fertile_period {
-  background-color: #009933;
+div.fertile_period {
+  background-color: #00A366;
   height: 25px;
   margin: 0px;
-  color: #000066;
+  color: #333333;
   text-align: center; 
-}
-
-.notmonth {
-  color: #CCC;
-}
-
-#month {
-  margin: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-#calendar #month a, #calendar #month a:hover {
-  text-decoration: none;
-  padding: 0 10px;
-  color: #999;
+  padding-top: 4px;
 }
 
 .today {
-  background-color: #99E6FF;
+  background-color: #ADFF85;
 }
 
-ul {
-  margin: 0;
-  margin-top: 5px;
-  padding: 0;
-  list-style: none;
-}
 
-li {
-  margin: 0;
-  padding: 0;
-  font-size: 11px;
-  text-align: center;
-}
+
+// ul {
+//   margin: 0;
+//   margin-top: 5px;
+//   padding: 0;
+//   list-style: none;
+// }
+
+// li {
+//   margin: 0;
+//   padding: 0;
+//   font-size: 11px;
+//   text-align: center;
+// }
+
+// .notmonth {
+//   color: #CCC;
+// }
+
+// #month {
+//   margin: 0;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   text-align: center;
+// }
