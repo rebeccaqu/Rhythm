@@ -23,6 +23,8 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
 
   def show
     @user = User.find(params[:id])
+    @physician = Physician.all
+    # @friendships = Friendship.all
 
     if @user.daily_rhythms.count > 0
 
