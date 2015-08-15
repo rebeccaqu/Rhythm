@@ -8,11 +8,14 @@ body {
 }
 
 body.home.index {
-  padding-top: 200px;
+  padding-top: 400px;
+  background-image: url('girl.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
   h1 {
     text-align: center;
-    color: black;
+    color: white;
   }
 
   #nav p {
@@ -20,8 +23,8 @@ body.home.index {
 
     a {
       display: inline-block;
-      border: 3px solid black;
-      color: black;
+      border: 3px solid white;
+      color: white;
       padding: 4px 8px;
       text-decoration: none;
 
@@ -29,7 +32,7 @@ body.home.index {
     }
 
     a:hover {
-      background-color: orange;
+      background-color: grey;
     }
   }
 }
