@@ -1,8 +1,6 @@
 @import "bourbon";
 @import "daily_rhythms";
 @import "users";
-@import "welcome";
-@import "sessions";
 @import "home";
 
 body {
@@ -10,10 +8,12 @@ body {
 }
 
 body.home.index {
+
   padding-top: 200px;
 
   h1 {
     text-align: center;
+    color: black;
   }
 
   #nav p {
@@ -25,6 +25,7 @@ body.home.index {
       color: black;
       padding: 4px 8px;
       text-decoration: none;
+      margin: 60px 40px;
     }
 
     a:hover {
@@ -32,11 +33,3 @@ body.home.index {
     }
   }
 }
-
-// body.home.index h1 {
-//   text-align: center;
-// }
-
-// body.home.index #nav p {
-//   text-align: center;
-// }
