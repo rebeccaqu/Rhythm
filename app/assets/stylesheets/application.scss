@@ -3,20 +3,6 @@
 @import "daily_rhythms";
 @import "users";
 
-body {
-
-  .nav {
-    height: 50px;
-    border: 3px solid white;
-
-    li {
-      display: inline-block;
-      padding: 4px 8px;
-    }
-  }
-
-}
-
 body.home.index {
   padding-top: 400px;
   background-image: url('girl.jpg');
