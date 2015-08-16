@@ -21,21 +21,21 @@ $(function(){
     }
   }
 
+  // #CURRENT CYCLE
   for (var i=0; i<gon.period_length; i++) {
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
-      color: "#FF9D92",
+      color: "#E68E8E",
       onClick: function(e) {doughnutOnClick(e)}
     });
   }; 
 
-  // #CURRENT CYCLE
   for (var i=0; i<gon.regular_day; i++) {
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#72848C",
+      color: "#329FAF",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -44,17 +44,16 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#72848C",
+      color: "#329FAF",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
-
 
   for (var i=0; i<gon.fertility_window; i++) {
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#49F2C9",
+      color: "#57E2A7",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -63,7 +62,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#72848C", 
+      color: "#329FAF", 
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -86,7 +85,7 @@ $(function(){
     doughnutItems.push({
       title: "Period Length " + gon.average_period_length,
       value: 1,
-      color: "#FC4349"
+      color: "#E68E8E"
     });
   };
   
@@ -95,7 +94,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50"
+      color: "#329FAF"
     });
   };
 
@@ -103,7 +102,7 @@ $(function(){
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#F7E248"
+      color: "#57E2A7"
     });
   };
 
@@ -111,7 +110,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#2C3E50"
+      color: "#329FAF"
     });
   };
 
@@ -145,7 +144,7 @@ $(function(){
         tipOffsetY: -45,
         tipClass: "doughnutTip",
         summaryClass: "doughnutSummary",
-        summaryTitle: "TOTAL DAYS:",
+        summaryTitle: "DAYS",
         summaryTitleClass: "doughnutSummaryTitle",
         summaryNumberClass: "doughnutSummaryNumber",
         beforeDraw: function() {  },

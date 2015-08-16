@@ -37,9 +37,11 @@
   display: inline-block;
   width: 450px;
   height: 450px;
-
   padding: 30px;
+}
 
+#current {
+  padding-left: 150px;
 }
 
 .doughnutTip {
@@ -74,29 +76,32 @@
 
 .doughnutSummary {
   position: absolute;
-  /*top: 50%;
-  left: 50%;*/
+
+  color: #444;
+  font: 16px proxima-nova,sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 55px;
+  text-decoration: none;
+
   margin-top: 100px;
   margin-left: 120px;
-  color: #d5d5d5;
   text-align: center;
-  // text-shadow: 0 -1px 0 #111;
   cursor: default;
 }
 
 .doughnutSummaryTitle {
-  /*position: absolute;
+  position: absolute;
   top: 50%;
-  width: 100%;*/
-/*  margin-top: -27%; */  
+  width: 100%; 
   font-size: 22px;
-  /*letter-spacing: .06em;*/
+  letter-spacing: .06em;
 }
 .doughnutSummaryNumber {
- /* position: absolute;
+  position: absolute;
   top: 50%;
   width: 100%;
-  margin-top: -15%;*/
+  margin-top: -15%;
   font-size: 55px;
 }
 .chart path:hover { opacity: 0.65; }
