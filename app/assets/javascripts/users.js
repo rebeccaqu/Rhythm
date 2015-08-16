@@ -72,7 +72,7 @@ $(function(){
     doughnutOnClick(e);
   });
 
-  $("#doughnutChart_current").drawDoughnutChart(doughnutItems);
+  $("#current").drawDoughnutChart(doughnutItems);
 
 });
 
@@ -115,7 +115,7 @@ $(function(){
     });
   };
 
-  $("#doughnutChart_average").drawDoughnutChart(doughnutItems);
+  $("#average").drawDoughnutChart(doughnutItems);
 
 });
 

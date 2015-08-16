@@ -16,7 +16,10 @@
   <% unless controller_name == "home" && action_name == "index" %>
   <% end %>
 
+    <%= yield %>
   
+  <div id="nav">
+    <p class="navbar-text pull-right">
 
   <% if current_user %>
   <div class="nav">
@@ -44,17 +47,10 @@
     <%= link_to "Physician Sign In", new_physician_session_path %>
   <% end %>
 
-    <%= yield %>
 
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
 
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
+<!--  -->
 
   </body>
 </html>

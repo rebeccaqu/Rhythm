@@ -1,3 +1,43 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.home.index {
+
+  padding-top: 200px;
+
+  h1 {
+    text-align: center;
+    color: #444;
+    font: 50px proxima-nova,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px;
+    margin-bottom: 100px;
+  }
+
+  #nav p {
+    text-align: center;
+
+    a {
+      color: #444;
+      font: 16px proxima-nova,sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      text-decoration: none;
+
+      background-color: transparent;
+      border: 1px solid #444;
+      border-radius: 4px;
+
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2.2px;
+
+      padding: 15px 15px;
+      margin: 10px;
+    }
+
+    a:hover {
+      background-color: orange;
+    } 
+  }
+} 
