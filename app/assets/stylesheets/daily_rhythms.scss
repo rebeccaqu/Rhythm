@@ -11,7 +11,7 @@ table {
 }
 
 td,th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-family: proxima-nova,sans-serif;
   font-size: 18px;
   padding: 6px;
   border: 1px solid #999;
@@ -58,6 +58,7 @@ header.calendar-header a {
 }
 
 header.calendar-header span {
+  font-family: proxima-nova,sans-serif;
   font-size: 23px;
   font-weight: bold;
   padding: 7px;

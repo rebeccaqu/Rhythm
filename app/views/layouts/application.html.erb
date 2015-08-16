@@ -14,16 +14,41 @@
     <%= yield %>
   <% end %>
 
+
+<!-- loop for nav bar -->
   <% if current_user %>
+    <% if current_page?(user_path(current_user)) %>
+      <div class="navigation">
+        Rhythm
+
+        <ul>
+        <li><%= link_to 'Profile', user_path(current_user.id), method: :delete, :class => 'navbar-link'%></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
+        </ul>
+
+      </div>
+
+    <% else %>
     <div class="navigation">
       Rhythm
 
       <ul>
         <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
-        <li> <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <!-- <li> <%#= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> </li> -->
       </ul>
 
     </div>
+    <% end %>
+
+  <% elsif current_physician && current_page?(user_path(current_physician)) %>
+      <div class="navigation">
+        Rhythm
+
+        <ul>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
+        </ul>
+
+      </div>
 
   <% elsif current_physician %>
     <div class = "navigation">
@@ -31,8 +56,7 @@
 
     <ul>
       <li><%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %></li>
-      <li><%= link_to 'Edit Profile', edit_physician_path, :class => 'navbar-link' %></li>
-      <li><%= link_to 'Physician Profile', physician_path(current_physician.id) %> </li>
+      <!-- <li><%#= link_to 'Edit Profile', edit_physician_path, :class => 'navbar-link' %></li> -->
     </ul>
 
     </div>

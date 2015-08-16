@@ -2,6 +2,7 @@
 @import "home";
 @import "daily_rhythms";
 @import "users";
+@import "registration";
 
 html, body {
   margin: 0px;
@@ -14,10 +15,13 @@ html, body {
   height: 30%; 
   display: inline-block;
 
+  margin-bottom: 18px;
+
   border-bottom: solid;
   border-width: 1px;
   border-color: #CCCCCC;
 
+  font-family: proxima-nova,sans-serif;
   font-weight: bold;
   font-size: 20px;
   text-align: left;
