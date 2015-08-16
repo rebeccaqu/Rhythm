@@ -2,41 +2,50 @@
 <html>
   <head>
     <title>Rhythm</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-    <%= include_gon %>  
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tags %>
+      <%= include_gon %>  
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>">
+  <!-- <body class="<%= controller_name %> <%= action_name %>"> -->
 
-  <% if controller_name == "home" && action_name == "index" %>
-    <%= yield %>
+  <%# if controller_name == "home" && action_name == "index" %>
+  <%# end %>
+
+  <% unless controller_name == "home" && action_name == "index" %>
   <% end %>
 
-  <div id="nav">
-    <p class="navbar-text pull-right">
+  
 
-    <% if current_user %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-
-    <% elsif current_physician %>
-      Logged in as <strong><%= current_physician.email %></strong>
-      <%#=link_to 'Edit profile', edit_physician_path, :class => 'navbar-link' %>
-      <%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %>
-    
-    <% else %>
-      <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
-      <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
-      <%= link_to "Physician Sign Up", new_physician_registration_path %> 
-      <%= link_to "Physician Sign In", new_physician_session_path %>
-    <% end %>
+  <% if current_user %>
+  <div class="nav">
+    Rhythm
+      <ul>
+        <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
+      </ul>
   </div>
 
-  <%#= calendar table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}, do |date| %>
-  <%# end %>
+  <% elsif current_physician %>
+  <div class = "nav">
+    Rhythm
+      <ul>
+        <li><%= link_to 'Edit profile', edit_physician_path, :class => 'navbar-link' %></li>
+        <li><%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <li><%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %> </li>
+      </ul>
+  </div>
+
+  <% else %> 
+    <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+    <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+    <%= link_to "Physician Sign Up", new_physician_registration_path %> 
+    <%= link_to "Physician Sign In", new_physician_session_path %>
+  <% end %>
+
+    <%= yield %>
+
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -46,9 +55,6 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-  <% unless controller_name == "home" && action_name == "index" %>
-    <%= yield %>
-  <% end %>
 
   </body>
 </html>
