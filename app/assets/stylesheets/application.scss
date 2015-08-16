@@ -38,14 +38,14 @@ body.home.index {
   ul {
     display: inline-block;
     list-style-type: none;
-    float: right;
+    // float: right;
     padding: 0px;
     margin: 0px;
   }
 
   li {
     width: 70px;
-    // float: right;
+    float: right;
     // height: 20px;
     padding: 7px;  
   }
