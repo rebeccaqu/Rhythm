@@ -67,6 +67,22 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
     end
   end
 
+  # def ics_summary(date)
+  #   @user = User.find(params[:id])
+
+  #   if @user.daily_rhythms.where("date=? and period=?", date, true).any?
+  #     "on period"
+  #   end
+  # end
+
+  # def ics_summary2(date)
+  #   @user = User.find(params[:id])
+
+  #   if @user.fertile_window?(date) == "in window"
+  #     "fertilex"
+  #   end
+  # end
+
   def download_ical
      @user = User.find(params[:id])   
      @user_daily_rhythms = @user.daily_rhythms
@@ -77,15 +93,14 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
           @user_daily_rhythms.each do |daily_rhythm|
             event = Icalendar::Event.new
             event.dtstart = daily_rhythm.date 
-            event.summary = ics_summary(daily_rhythm.date)
+            event.summary = ics_summary(daily_rhythm.date) 
             calendar.add_event(event)
             calendar.publish
-          end 
-          render :text => calendar.to_ical          
+          end
+          render :text => calendar.to_ical
         end
       end
-
-  end
+    end
 
   private
 
