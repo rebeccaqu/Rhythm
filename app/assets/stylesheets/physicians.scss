@@ -1,0 +1,153 @@
+body.physicians.index {
+
+  h1 {
+    text-align: center;
+    color: #444;
+    font: 40px proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  #physicians {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    text-align: center;
+
+    #physician{
+      display: block;
+      background-color: #FAFAFA;
+      box-shadow: 2px 2px 2px #888888;
+      padding: 10px;
+      margin: 5px;
+    }
+    
+    p {
+    position: inline-block;
+    color: #444;
+    font: 15px proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    }
+
+    a {
+      display: inline-block;
+      color: #444;
+      font: 16px proxima-nova, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 20px;
+      text-decoration: none;
+
+      background-color: transparent;
+      border: 1px solid #444;
+      border-radius: 4px;
+
+      font-size: 12px;
+      letter-spacing: 2px;
+
+      padding: 10px 10px;
+    }
+  }
+}
+
+body.physicians.show {
+
+    h1 {
+    text-align: center;
+    color: #444;
+    font: 40px proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 30px;
+    }
+
+    #patients {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    text-align: center;
+
+      #patient {
+        display: block;
+        background-color: #FAFAFA;
+        box-shadow: 2px 2px 2px #888888;
+        padding: 10px;
+        margin: 5px;
+      }
+
+      p {
+        position: inline-block;
+        color: #444;
+        font: 15px proxima-nova, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        }
+
+      a {
+        display: inline-block;
+        color: #444;
+        font: 16px proxima-nova, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 20px;
+        text-decoration: none;
+
+        background-color: transparent;
+        border: 1px solid #444;
+        border-radius: 4px;
+
+        font-size: 12px;
+        letter-spacing: 2px;
+
+        padding: 10px 10px;
+      }
+    }
+
+    #pending_patients {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    text-align: center;
+
+      #pending_patient {
+        display: block;
+        background-color: #FAFAFA;
+        box-shadow: 2px 2px 2px #888888;
+        padding: 10px;
+        margin: 5px;
+      }
+
+      p {
+        position: inline-block;
+        color: #444;
+        font: 15px proxima-nova, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        }
+
+      a {
+        display: inline-block;
+        color: #444;
+        font: 16px proxima-nova, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 20px;
+        text-decoration: none;
+
+        background-color: transparent;
+        border: 1px solid #444;
+        border-radius: 4px;
+
+        font-size: 12px;
+        letter-spacing: 2px;
+
+        padding: 10px 10px;
+      }
+    }
+
+}
