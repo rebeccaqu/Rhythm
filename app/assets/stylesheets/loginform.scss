@@ -1,11 +1,18 @@
 /* Basic Grey */
 
-.bckground{
+// .back{
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #E6E6E6;
+// }
+
+.loginform{
+    margin-top: 80px; 
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #E6E6E6;
-}
+    background-color: #E6E6E6;   
 
 h2 {
     text-align: center;
@@ -13,11 +20,7 @@ h2 {
     text-transform: uppercase;
 }
 
-.form{
-    margin-top: 80px;    
-
-
-.signup {
+.signin {
     text-align: center;
     font: 14px proxima-nova,sans-serif;
     margin-left:auto;
@@ -41,7 +44,7 @@ input.button {
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background-color: #348774;
+    background-color: #0404B4;
     color: white;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -58,7 +61,7 @@ input.button {
     -moz-transition: all 0 ease-in-out;
     -o-transition: all 0 ease-in-out;
     transition: all 0 ease-in-out;
-    box-shadow: 0 3px #348774;
+    box-shadow: 0 3px #0404B4;
     padding: 15px 30px;
 }
 }

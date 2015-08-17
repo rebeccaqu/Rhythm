@@ -7,11 +7,11 @@ table {
   text-align: center;
   margin: auto;
   border-collapse: collapse;
-  width: 100%;
+  width: 85%;
 }
 
 td,th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-family: proxima-nova,sans-serif;
   font-size: 18px;
   padding: 6px;
   border: 1px solid #999;
@@ -29,11 +29,10 @@ th {
 td {
   background: #FFF;
   color: #777;
-  height: 70px;
+  height: 130px;
   vertical-align: top;
   font-size: 16px;
   padding: 0px;
-  height: 120px;
 }
 
 p.date {
@@ -48,7 +47,8 @@ p.date {
 
 header.calendar-header {
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 12px;
+  padding-top: 5px;
 }
 
 header.calendar-header a {
@@ -58,6 +58,7 @@ header.calendar-header a {
 }
 
 header.calendar-header span {
+  font-family: proxima-nova,sans-serif;
   font-size: 23px;
   font-weight: bold;
   padding: 7px;

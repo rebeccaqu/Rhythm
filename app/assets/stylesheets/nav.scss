@@ -1,7 +1,6 @@
 
 // CSS for home page nav bar
 body.home.index {
-
   padding-top: 200px;
 
   h1 {
@@ -49,7 +48,9 @@ body.home.index {
 body {
 
   #nav {
-   background-color: #FAFAFA;
+   margin-bottom: 13px; 
+   margin-top: 0px;
+   background-color: #FAFAFA ;
    width: 100%;
    height: 30%; 
    display: inline-block;
