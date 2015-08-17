@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
 
 
-  devise_for :physicians, controllers: {registrations: "physicians/registrations"}
+  devise_for :physicians, controllers: {registrations: "physicians/registrations", sessions: 'physicians/sessions'}
 
-  devise_for :users, controllers: {registrations: "users/registrations"}
+  devise_for :users, controllers: {registrations: "users/registrations", sessions: 'users/sessions'}
 
 
   resources :physicians 
