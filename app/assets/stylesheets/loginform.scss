@@ -1,11 +1,18 @@
 /* Basic Grey */
 
-.bckground{
+// .back{
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #E6E6E6;
+// }
+
+.loginform{
+    margin-top: 80px; 
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #E6E6E6;
-}
+    background-color: #E6E6E6;   
 
 h2 {
     text-align: center;
@@ -13,11 +20,7 @@ h2 {
     text-transform: uppercase;
 }
 
-.form{
-    margin-top: 80px;    
-}
-
-.field {
+.signin {
     text-align: center;
     font: 14px proxima-nova,sans-serif;
     margin-left:auto;
@@ -60,4 +63,5 @@ input.button {
     transition: all 0 ease-in-out;
     box-shadow: 0 3px #0404B4;
     padding: 15px 30px;
+}
 }

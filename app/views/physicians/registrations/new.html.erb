@@ -6,22 +6,22 @@
   
 <div class="form">
 
-  <div class="field">
+  <div class="signup">
      <%= f.label :first_name %><br />
      <%= f.text_field :first_name %>
   </div>
 
-  <div class="field">
+  <div class="signup">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
   
-  <div class="field">
+  <div class="signup">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="signup">
     <%= f.label :password %>
     <% if @minimum_password_length %> <br />
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -29,7 +29,7 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="signup">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>

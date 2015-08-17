@@ -1,10 +1,12 @@
-<div class ="buttons">
 	<% if current_physician %>
-		<%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %>
+		<div class ="nav">
+		<ul>
+		<li> <%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %></li>
+		</ul>
+		</div>
 	<%# else %>
 		<%#= link_to 'Back', user_path(@user) %> </div>
 	<% end %>
-</div>
 
 
 <table class="bordered_table">
