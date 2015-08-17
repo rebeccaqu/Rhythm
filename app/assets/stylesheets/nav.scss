@@ -14,9 +14,9 @@ body.home.index {
   }
 
   #nav {
-   text-align: center;
-   background-color: white;
-   border-color: white;
+    text-align: center;
+    background-color: white;
+    border-color: white;
 
     a {
       color: #444;
@@ -55,7 +55,8 @@ body {
    height: 30%; 
    display: inline-block;
    text-decoration: none;
-
+   
+   margin: -7px -7px; 
    border-bottom: solid;
    border-width: 1px;
    border-color: #CCCCCC ;

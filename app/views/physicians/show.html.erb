@@ -1,17 +1,24 @@
 <h1>My Patients</h1>
 
-<% @friendships.each do |friendship| %>
-  <% if friendship.accepted == true %>
-    <%= friendship.user.first_name %> <%= friendship.user.last_name %>
-    <%= link_to 'See Patient\'s Rhythm', user_daily_rhythms_path(friendship.user) %>
+<div id="patients">
+  <% @friendships.each do |friendship| %>
+    <% if friendship.accepted == true %>
+      <div id="patient">
+        <p><%= friendship.user.first_name %> <%= friendship.user.last_name %></p>
+        <%= link_to 'See Patient\'s Rhythm', user_daily_rhythms_path(friendship.user) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <h1>Pending Patient Requests</h1>
-
-<% @friendships.each do |friendship| %>
-  <% if friendship.accepted == false %>
-    friendship request from: <%= friendship.user.first_name %> <%= friendship.user.last_name %> 
-    <%= button_to "Accept Patient", friendship_path(friendship), method: :patch %>
+<div id="pending_patients">
+  <% @friendships.each do |friendship| %>
+    <% if friendship.accepted == false %>
+      <div id="pending_patient">
+        <p> Friend request from: <%= friendship.user.first_name %> <%= friendship.user.last_name %> </p> 
+        <%= link_to "Accept Patient", friendship_path(friendship), method: :patch %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

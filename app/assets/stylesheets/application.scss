@@ -1,4 +1,6 @@
-@import "bourbon";
+// @import "bourbon";
+// @import "grid-settings"
+// @import "neat";
 @import "nav";
 @import "users";
 @import "daily_rhythms";
@@ -43,7 +45,6 @@ html, body {
     margin-right: 9px;
   }
 }
-
 
 // @font-face {
 //   font-family: 'Oswald';
