@@ -1,8 +1,8 @@
 	<% if current_physician %>
 		<div class ="nav">
-		<ul>
-		<li> <%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %></li>
-		</ul>
+			<ul>
+				<li> <%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %></li>
+			</ul>
 		</div>
 	<%# else %>
 		<%#= link_to 'Back', user_path(@user) %> </div>
@@ -20,15 +20,15 @@
 		<% daily_rhythms.each do |daily_rhythm| %>
 
 		  	<div class="daily_info"> 
-		  		<%= number_with_precision(daily_rhythm.bbt, :precision => 2) %>°C
+		  		BBT: <%= number_with_precision(daily_rhythm.bbt, :precision => 2) %>°C
 		  	</div>
 		  	<div class="daily_info"> 
-		  		<%= daily_rhythm.cervical_fluid %> 
+		  		CF: <%= daily_rhythm.cervical_fluid %> 
 		  	</div>
 
 		  	<% if daily_rhythm.period == true %>
 		  		<div class="actual_period">
-					on period
+					Period
 				</div>	
 			<% end %>
 
@@ -36,7 +36,7 @@
 			<% @user.period_starts.each do |fp| %>
 				<% if (date >= fp + @user.fertile_window_start)&&(date <= fp + @user.fertile_window_end) %>
 					<div class="fertile_period">
-						fertile period
+						Fertile Window
 					</div>
 				<% end %>
 			<% end %>
@@ -45,7 +45,7 @@
 			<% @user.period_starts.each do |ap| %>
 				<% if (date >= ap)&&(date <= ap + @user.avg_period.days) %>
 					<div class="average_period">
-						avg. period
+						Average Period
 					</div>
 				<% end %>
 			<% end %> 

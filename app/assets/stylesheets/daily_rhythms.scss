@@ -1,7 +1,3 @@
-// .header {
-//   text-align: left;
-//   padding-bottom: 20px;
-// }
 
 table {
   text-align: center;
@@ -19,8 +15,8 @@ td,th {
 
 th {
   text-align: left;
-  font-weight: bold;
-  background: #36717D;
+  font-weight: normal;
+  background: #f8f8f8;
   color: #1A1A1A;
   text-align: center;
   width: 14.2857142857143%;
@@ -48,20 +44,22 @@ p.date {
 header.calendar-header {
   text-align: center;
   padding-bottom: 12px;
-  padding-top: 5px;
+  padding-top: 40px;
 }
 
 header.calendar-header a {
-  color: #0000CC;
+  color: #444;
   font-size: 30px;
   padding-bottom: 3px;
+  text-decoration: none;
 }
 
 header.calendar-header span {
   font-family: proxima-nova,sans-serif;
-  font-size: 23px;
-  font-weight: bold;
-  padding: 7px;
+  font-size: 30px;
+  font-weight: normal;
+  color: #444;
+  padding: 10px;
 }
 
 div.daily_info {
@@ -72,12 +70,12 @@ div.daily_info {
 
 div.actual_period {
   position: relative;
-  background-color: #941C19;
+  background-color: #FF9D9D;
   height: 25px;
   margin: 0px; 
   padding-top: 2px;
   text-align: center;
-  color: #333333;
+  color: white;
   padding-top: 4px;
 }
 
@@ -86,46 +84,19 @@ div.average_period {
   height: 25px;
   margin: 0px; 
   text-align: center;
-  color: #333333;
+  color: white;
   padding-top: 4px; 
 }
 
 div.fertile_period {
-  background-color: #00A366;
+  background-color: #57E2A7;
   height: 25px;
   margin: 0px;
-  color: #333333;
+  color: white;
   text-align: center; 
   padding-top: 4px;
 }
 
 .today {
-  background-color: #ADFF85;
+  background-color: #f0f0f0;
 }
-
-
-
-// ul {
-//   margin: 0;
-//   margin-top: 5px;
-//   padding: 0;
-//   list-style: none;
-// }
-
-// li {
-//   margin: 0;
-//   padding: 0;
-//   font-size: 11px;
-//   text-align: center;
-// }
-
-// .notmonth {
-//   color: #CCC;
-// }
-
-// #month {
-//   margin: 0;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   text-align: center;
-// }

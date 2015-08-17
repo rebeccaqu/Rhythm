@@ -26,7 +26,7 @@ $(function(){
     doughnutItems.push({
       title: "Period Length " + gon.period_length,
       value: 1,
-      color: "#E68E8E",
+      color: "#FF9D9D",
       onClick: function(e) {doughnutOnClick(e)}
     });
   }; 
@@ -35,7 +35,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#329FAF",
+      color: "#3BBCCF",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -44,7 +44,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#329FAF",
+      color: "#3BBCCF",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -53,7 +53,7 @@ $(function(){
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#57E2A7",
+      color: "#5CF0B1",
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -62,7 +62,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#329FAF", 
+      color: "#3BBCCF", 
       onClick: function(e) {doughnutOnClick(e)}
     });
   };
@@ -85,7 +85,7 @@ $(function(){
     doughnutItems.push({
       title: "Period Length " + gon.average_period_length,
       value: 1,
-      color: "#E68E8E"
+      color: "#F18181"
     });
   };
   
@@ -94,7 +94,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#329FAF"
+      color: "#3595DD"
     });
   };
 
@@ -102,7 +102,7 @@ $(function(){
     doughnutItems.push({
       title: "Fertility Window Length " + gon.fertility_window, 
       value: 1,  
-      color: "#57E2A7"
+      color: "#3BBA9E"
     });
   };
 
@@ -110,7 +110,7 @@ $(function(){
     doughnutItems.push({
       title: "", 
       value: 1,  
-      color: "#329FAF"
+      color: "#3595DD"
     });
   };
 
