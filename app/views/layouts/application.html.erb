@@ -15,64 +15,58 @@
   <% end %>
 
 
-<!-- loop for nav bar -->
-  <% if current_user %>
-    <% if current_page?(user_path(current_user)) %>
-      <div class="navigation">
-        Rhythm
-
-        <ul>
-        <li><%= link_to 'Profile', user_path(current_user.id), method: :delete, :class => 'navbar-link'%></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
-        </ul>
-
-      </div>
-
-    <% else %>
-    <div class="navigation">
-      Rhythm
-
+    <% if current_user && (current_page?(user_daily_rhythms_path(current_user))) %>
+      <div id="nav">
       <ul>
-        <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
-        <!-- <li> <%#= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> </li> -->
+        <!-- Logged in as <strong><%= current_user.email %></strong>. -->
+        <p>R H Y T H M</p>
+        <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <li> <%= link_to "Profile", user_path(current_user), :class => 'navbar-link' %></li>
       </ul>
-
-    </div>
-    <% end %>
-
-  <% elsif current_physician && current_page?(user_path(current_physician)) %>
-      <div class="navigation">
-        Rhythm
-
-        <ul>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
-        </ul>
-
       </div>
 
-  <% elsif current_physician %>
-    <div class = "navigation">
-      Rhythm
+    <% elsif current_user %>
+      <div id="nav">
+      <ul>
+        <!-- Logged in as <strong><%= current_user.email %></strong>. -->
+        <p>R H Y T H M</p>
+        <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> </li>
+      </ul>
+      </div>
+    
+    <%# elsif current_physician && (current_page?(user_daily_rhythms_path)) %>
+  <!--     <ul>
+      
+        <p>R H Y T H M</p>
+        <li> <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <li> <%#= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <li> <%#= link_to "Physician Profile", physician_path(current_physician), :class => 'navbar-link' %></li>
+      </ul> --> 
 
-    <ul>
-      <li><%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %></li>
-      <!-- <li><%#= link_to 'Edit Profile', edit_physician_path, :class => 'navbar-link' %></li> -->
-    </ul>
-
-    </div>
+    <% elsif current_physician %>
+      <div id="nav">
+      <ul>
+        <!--  Logged in as <strong><%= current_physician.email %></strong> -->
+        <p>R H Y T H M</p>
+        <li> <%#= link_to 'Edit profile', edit_physician_path, :class => 'navbar-link' %> </li>
+        <li> <%= link_to 'Logout', destroy_physician_session_path, method: :delete, :class => 'navbar-link' %> </li>
+      </ul>
+      </div>
 
     <% elsif current_page?(root_path) %>
       <div id="nav">
-        <p class="navbar-text pull-right">
-          <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link' %> 
-          <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
-          <%= link_to "Physician Sign Up", new_physician_registration_path %> 
-          <%= link_to "Physician Sign In", new_physician_session_path %>
-        </p>
+        <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link' %> 
+        <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Physician Sign Up", new_physician_registration_path %> 
+        <%= link_to "Physician Sign In", new_physician_session_path %>
       </div>
-    
+
     <% else %>
+        
     <% end %>
+  </div>
 
 
     <%# if notice %>
@@ -85,7 +79,6 @@
   <% unless controller_name == "home" && action_name == "index" %>
     <%= yield %>
   <% end %>
-
 
   </body>
 </html>
