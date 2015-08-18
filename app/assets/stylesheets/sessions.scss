@@ -1,35 +1,33 @@
-/* Basic Grey */
 
 .loginform{
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #E6E6E6;
-
-    // h2 {
-    //     text-align: center;
-    //     font: 25px proxima-nova,sans-serif;
-    //     text-transform: uppercase;
-    // }
+    background-color: #f8f8f8;
 
 .form{
-    margin-top: 80px;    
+    margin-top: -20px;    
     text-align: center;
     font: 16px proxima-nova,sans-serif;
 
     .signin {
+        input[type=text],
+        input[type=email],
+        input[type=password] {
+            padding: 10px 80px;
+            border: none;
+            border-radius: 5px;
+        }
+ 
         text-align: center;
         margin-left:auto;
         margin-right:auto;
-        // margin-bottom: 3px;
-        max-width: 500px;
+
+        max-width: 700px;
         height: 20px;
-        background: #E6E6E6;
-        padding: 30px 12px 12px 12px;
-        color: #808080;
-        text-shadow: 1px 1px 1px #FFF;
-        border:1px solid #E4E4E4;
-        border-radius: 4px;
+        background: #f8f8f8;
+        padding: 30px;
+        color: #444;
     }
 
 
