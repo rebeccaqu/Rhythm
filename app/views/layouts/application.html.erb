@@ -5,7 +5,9 @@
       <%= stylesheet_link_tag 'application', media: 'all' %>
       <%= javascript_include_tag 'application' %>
       <%= csrf_meta_tags %>
-      <%= include_gon %>  
+      <%= include_gon %> 
+      <%= favicon_link_tag 'favicon.ico' %>
+
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
@@ -13,7 +15,6 @@
   <% if controller_name == "home" && action_name == "index" %>
     <%= yield %>
   <% end %>
-
 
     <% if (current_user && (current_page?(user_daily_rhythms_path(current_user))) )||
           (current_user && (current_page?(physicians_path)) ) %>
@@ -63,8 +64,8 @@
 
     <% elsif current_page?(root_path) %>
       <div id="nav">
-        <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link' %> 
-        <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> 
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <%= link_to "Physician Sign Up", new_physician_registration_path %> 
         <%= link_to "Physician Sign In", new_physician_session_path %>
       </div>

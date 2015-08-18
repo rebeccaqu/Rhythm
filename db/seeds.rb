@@ -4,33 +4,33 @@ DailyRhythm.destroy_all()
 Physician.destroy_all()
 
 u1 = User.create({
-  first_name: "Aysha",
-  last_name: "Eda",
-  email: "Aysha@bitmaker.com",
+  first_name: "Betty",
+  last_name: "Maker",
+  email: "betty@bitmaker.com",
   password: "password", 
   password_confirmation: "password"
 })
 
 u2 = User.create({
-  first_name: "Bex", 
-  last_name: "Qu", 
-  email: "Bex@bitmaker.com", 
+  first_name: "Bob", 
+  last_name: "Maker", 
+  email: "bob@bitmaker.com", 
   password: "password",
   password_confirmation: "password"
 })
 
 p1 = Physician.create({
-  first_name: "Dr.",
-  last_name: "Bob",
-  email: "Bob@iamdoctor.com",
+  first_name: "Dr. Derek",
+  last_name: "McDreamy",
+  email: "mcdreamy@iamdoctor.com",
   password: "password", 
   password_confirmation: "password"
 })
 
 p2 = Physician.create({
-  first_name: "Dr.",
-  last_name: "Kat",
-  email: "Kat@iamdoctor.com",
+  first_name: "Dr. Gregory",
+  last_name: "House",
+  email: "house@iamdoctor.com",
   password: "password", 
   password_confirmation: "password"
 })

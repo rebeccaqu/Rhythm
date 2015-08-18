@@ -9,6 +9,14 @@
 @import "sessions";
 @import "today_form";
 
+body.home.index {
+  background-image: url('half-wheel.jpg');
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 68%;
+  background-attachment: fixed;
+
+}
 
 // @font-face {
 //   font-family: 'Oswald';
@@ -30,9 +38,3 @@
 //   font-family: "Oswald", sans-serif;
 // }
 
-// body.home.index {
-//   background-image: url('girl.jpg');
-//   background-repeat: no-repeat;
-//   background-size: 100%;
-//   background-position: right 80px;
-// }

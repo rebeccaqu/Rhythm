@@ -7,15 +7,25 @@
 
 .form{
     margin-top: 95px;    
+    background-color: #f8f8f8;
+    // margin-top: -20px;    
     text-align: center;
     font: 20px proxima-nova,sans-serif;
 
     .signin {
+        input[type=text],
+        input[type=email],
+        input[type=password] {
+            padding: 10px 80px;
+            border: none;
+            border-radius: 5px;
+        }
+ 
         text-align: center;
         margin-left:auto;
         margin-right:auto;
         margin-bottom: 3px;
-        max-width: 500px;
+        // max-width: 500px;
         height: 20px;
         background: #E6E6E6;
         padding: 25px 12px 15px 12px;
@@ -23,6 +33,11 @@
         text-shadow: 1px 1px 1px #FFF;
         border:1px solid #E4E4E4;
         border-radius: 4px;
+        max-width: 700px;
+        height: 20px;
+        background: #f8f8f8;
+        padding: 30px;
+        color: #444;
     }
 
     .rem{

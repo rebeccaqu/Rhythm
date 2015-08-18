@@ -13,7 +13,7 @@ body.physicians.index {
 
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
+    width: 30%;
     text-align: center;
 
     #physician{
@@ -49,6 +49,10 @@ body.physicians.index {
       letter-spacing: 2px;
 
       padding: 10px 10px;
+    }
+
+    a:hover {
+      background-color: white;
     }
   }
 }
@@ -105,6 +109,10 @@ body.physicians.show {
 
         padding: 10px 10px;
       }
+
+      a:hover {
+        background-color: white;
+      }
     }
 
     #pending_patients {
@@ -147,6 +155,10 @@ body.physicians.show {
         letter-spacing: 2px;
 
         padding: 10px 10px;
+      }
+
+      a:hover {
+        background-color: white;
       }
     }
 
