@@ -6,20 +6,24 @@ body.users.show {
 .welcome {
   h1 {
     text-align: left;
+    padding-left: 20px;
     color: #444;
-    font: 50px proxima-nova, sans-serif;
+    font: 45px proxima-nova, sans-serif;
     font-style: normal;
     font-weight: 550;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
 
 .buttons {
+  padding-left: 20px;
+  text-align: left;
+
   a {
       color: #444;
       font: 16px proxima-nova,sans-serif;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 24px;
       text-decoration: none;
 
@@ -32,6 +36,10 @@ body.users.show {
       letter-spacing: 2.2px;
 
       padding: 10px 10px;
+  }
+
+  a:hover {
+    background-color: white;
   }
 }
 

@@ -6,7 +6,7 @@
 	<% if @user.daily_rhythms.count == 0 %>
 		<%= link_to "Create Rhythm", new_user_daily_rhythm_path(@user) %>
 	<% elsif current_physician %>
-		<%= link_to 'Patient History', user_daily_rhythms_path(@user) %> |
+		<%= link_to 'Patient History', user_daily_rhythms_path(@user) %> 
 		<%= link_to 'Physicians Profile Page', physician_path(current_physician.id) %>
 	<% else %>	
 		<%= link_to 'Enter Today\'s Data', new_user_daily_rhythm_path(@user) %> 
