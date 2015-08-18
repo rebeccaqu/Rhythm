@@ -1,10 +1,10 @@
-
-
-.background{
+.background {
+    margin: 0;
+    padding: 0px;
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #f8f8f8;
+    background-color: #F8F8F8;
 }
 
 h2 {
@@ -14,12 +14,14 @@ h2 {
     text-transform: uppercase;
     font-style: normal;
     font-weight: 300;
+    background-color: #f8f8f8
 }
 
 .form {
-    margin-top: -20px;    
+    margin-top: -30px;    
     text-align: center;
     font: 18px proxima-nova,sans-serif;
+    background-color: #f8f8f8;
 
     .signup {
 
@@ -32,16 +34,15 @@ h2 {
         }
         
         text-align: center;
-        margin-left:auto;
-        margin-right:auto;
+        margin-left: auto;
+        margin-right: auto;
 
         max-width: 700px;
         height: 20px;
-        background: #E6E6E6;
+        background: #f8f8f8;
         padding: 25px 12px 18px 12px;
         color: #808080;
         text-shadow: 1px 1px 1px #FFF;
-        border:1px solid #E4E4E4;
         border-radius: 4px;
         background: #f8f8f8;
         padding: 30px;
@@ -50,12 +51,12 @@ h2 {
 
 
     input.button {
-        margin-top: 25px;
+        margin-top: 10px;
         border: none;
         outline: none;
         font-family: proxima-nova,  sans-serif;
-        font-size: 17px;
-        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 300;
         letter-spacing: 2px;
         background-color: #348774;
         color: white;
@@ -75,6 +76,6 @@ h2 {
         -o-transition: all 0 ease-in-out;
         transition: all 0 ease-in-out;
         box-shadow: 0 3px #348774;
-        padding: 15px 30px;
+        padding: 10px 15px;
     }
 }

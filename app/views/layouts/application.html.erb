@@ -22,7 +22,7 @@
       <ul>
         <!-- Logged in as <strong><%= current_user.email %></strong>. -->
         <p>R H Y T H M</p>
-        <li> <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <!-- <li> <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li> -->
         <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
         <li> <%= link_to "Profile", user_path(current_user), :class => 'navbar-link' %></li>
       </ul>
@@ -45,9 +45,9 @@
        <div id="nav">
       <ul>
         <p>R H Y T H M</p>
-        <li> <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <!-- <li> <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li> -->
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
-        <li><%= link_to "Physician Profile", physician_path(current_physician), :class => 'navbar-link' %></li>
+        <!-- <li><%#= link_to "Physician Proflile", physician_path(current_physician), :class => 'navbar-link' %></li> -->
       </ul> 
       </div>
 
@@ -64,8 +64,8 @@
 
     <% elsif current_page?(root_path) %>
       <div id="nav">
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> 
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link' %> 
+        <%= link_to "Log In", new_user_session_path, :class => 'navbar-link'  %>
         <%= link_to "Physician Sign Up", new_physician_registration_path %> 
         <%= link_to "Physician Sign In", new_physician_session_path %>
       </div>
