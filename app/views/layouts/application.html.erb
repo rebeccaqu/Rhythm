@@ -15,7 +15,8 @@
   <% end %>
 
 
-    <% if current_user && (current_page?(user_daily_rhythms_path(current_user))) %>
+    <% if (current_user && (current_page?(user_daily_rhythms_path(current_user))) )||
+          (current_user && (current_page?(physicians_path)) ) %>
       <div id="nav">
       <ul>
         <!-- Logged in as <strong><%= current_user.email %></strong>. -->
@@ -25,6 +26,7 @@
         <li> <%= link_to "Profile", user_path(current_user), :class => 'navbar-link' %></li>
       </ul>
       </div>
+
 
     <% elsif current_user %>
       <div id="nav">

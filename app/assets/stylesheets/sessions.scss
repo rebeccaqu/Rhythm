@@ -1,4 +1,3 @@
-/* Basic Grey */
 
 .loginform{
     position: fixed;
@@ -6,32 +5,29 @@
     height: 100%;
     background-color: #E6E6E6;
 
-    // h2 {
-    //     text-align: center;
-    //     font: 25px proxima-nova,sans-serif;
-    //     text-transform: uppercase;
-    // }
-
 .form{
-    margin-top: 80px;    
+    margin-top: 95px;    
     text-align: center;
-    font: 16px proxima-nova,sans-serif;
+    font: 20px proxima-nova,sans-serif;
 
     .signin {
         text-align: center;
         margin-left:auto;
         margin-right:auto;
-        // margin-bottom: 3px;
+        margin-bottom: 3px;
         max-width: 500px;
         height: 20px;
         background: #E6E6E6;
-        padding: 30px 12px 12px 12px;
+        padding: 25px 12px 15px 12px;
         color: #808080;
         text-shadow: 1px 1px 1px #FFF;
         border:1px solid #E4E4E4;
         border-radius: 4px;
     }
 
+    .rem{
+        font-size: 16px;
+    }
 
     input.button {
         margin-top: 25px;

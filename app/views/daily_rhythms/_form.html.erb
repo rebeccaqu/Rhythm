@@ -1,6 +1,9 @@
+ <div class = "background"> 
+ <h1>Enter Today's Data</h1>
+  <div class = "form">
   <%= form_for ([@user, @daily_rhythm]) do |f| %>
 
-    <div class="field">
+    <div class="rhythm">
       <%= f.label "Are you on your period?" %>
       <%= f.label :period, "Yes", :value => "true"  %>
       <%= f.radio_button :period, true %>
@@ -8,25 +11,25 @@
       <%= f.radio_button :period, false %>
     </div>
 
-    <div>
+    <div class="rhythm">
+    <%= f.label "Period flow" %>
     <%= f.select :period_flow, [['light','light'],['medium','medium'],['heavy','heavy']] %>
     </div>
 
-    <div class="field">
+    <div class="rhythm">
       <%= f.label "basal body temperature" %><br />
       <%= f.text_area :bbt %>
     </div>
     
-     <div>
-     <%= f.label :cervical_fluid %><br />
+     <div class="rhythm">
+    <%= f.label :cervical_fluid %>
     <%= f.select :cervical_fluid, [['egg-white','egg-white'],['sticky','sticky'],['cloudy','cloudy'], ['dry','dry'], ['atypical','atypical'], ['period','period']] %>
-
     </div>
 
-    <div>
-    <%= f.label :pain %><br />
+    <div class="rhythm">
+    <%= f.label :pain %>
     <select name="user[role_id]">
-      <option value="">Please select</option>
+      <!-- <option value="">Please select</option> -->
       <option value="1" selected="selected">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -40,23 +43,22 @@
     </select>
     </div>
 
-    <div>
-    <%= f.label :mood %><br />
+    <div class="rhythm">
+    <%= f.label :mood %>
     <%= f.select :mood, [['normal','normal'],['irritable','irritable'],['happy','happy'], ['sad','sad'], ['sensitive','sensitive']] %>
     </div>
 
-    <div>
-    <%= f.label :pill %><br />
+    <div class="rhythm">
+    <%= f.label :pill %>
     <%= f.select :pill, [['taken','taken'],['missed','missed'],['late','late'], ['double','double']] %>
     </div>
 
-    <div class="field">
-      <%= f.label :sex %><br />
+    <div class="rhythm">
+      <%= f.label :sex %>
       <%= f.select :sex, [['unprotected','unprotected'],['protected','protected'],['withdraw','withdraw'], ['none','none']] %>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <%= f.submit "Create", :class => "button" %>
     </div>
-
   <% end %>
+  </div>
