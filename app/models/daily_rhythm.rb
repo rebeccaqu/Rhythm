@@ -37,27 +37,6 @@ class DailyRhythm < ActiveRecord::Base
 
   end
 
-  def ics_comment_period
-    " ____
-     /     \
-    | () () |
-     \  ^  /
-      |||||
-      ||||| 
-      "
-  end
-
-  def ics_comment_fertile
-      "
-      .-*)) `*-.
-     /*  ((*   *'.
-    |   *))  *   *\
-    | *  ((*   *  /
-     \  *))  *  .'
-      '-.((*_.-'
-  "
-  end
-
   def to_ics
     if on_period?
 

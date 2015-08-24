@@ -30,23 +30,24 @@
 				</div>	
 			<% end %>
 
-			
-			<% @user.period_starts.each do |fp| %>
-				<% if (date >= fp + @user.fertile_window_start)&&(date <= fp + @user.fertile_window_end) %>
-					<div class="fertile_period">
-						Fertile Window
-					</div>
+			<% if @user.daily_rhythm.last.cycle_num >= 2 %>
+				<% @user.period_starts.each do |fp| %>
+					<% if(date >= fp + @user.fertile_window_start)&&(date <= fp + @user.fertile_window_end) %>
+						<div class="fertile_period">
+							Fertile Window
+						</div>
+					<% end %>
 				<% end %>
+
+
+				<% @user.period_starts.each do |ap| %>
+					<% if (date >= ap)&&(date <= ap + @user.avg_period.days) %>
+						<div class="average_period">
+							Average Period
+						</div>
+					<% end %>
+				<% end %> 
 			<% end %>
-
-
-			<% @user.period_starts.each do |ap| %>
-				<% if (date >= ap)&&(date <= ap + @user.avg_period.days) %>
-					<div class="average_period">
-						Average Period
-					</div>
-				<% end %>
-			<% end %> 
 
 		<% end %>	
 	<% end %>

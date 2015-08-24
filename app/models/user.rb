@@ -73,16 +73,6 @@ class User < ActiveRecord::Base
     period_begs
   end
 
-  # def fertile_window?(dt)
-  #   period_starts.each do |fp|
-  #     if dt >= (fp + fertile_window_start) && dt <= (fp + fertile_window_end)
-  #       "in window"
-  #     else
-  #       "nope"
-  #     end
-  #   end
-  # end
-
   def first_day_of_period
     daily_rhythms.where(day_of_cycle: 1).order('cycle_num DESC').first
   end
@@ -137,14 +127,7 @@ class User < ActiveRecord::Base
     end
 
     last_cycle = current_cycle - 1
-
     (total_days / last_cycle).to_i
   end
-  
-  # def period_and_fertile_days
-  #   daily_rhythms.select do |dr|
-  #     dr.on_period || (dr.day_of_cycle >= fertile_window_start && dr.day_of_cycle <= fertile_window_end)
-  #   end
-  # end
 
 end

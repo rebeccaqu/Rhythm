@@ -24,7 +24,6 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
   def show
     @user = User.find(params[:id])
     @physician = Physician.all
-    # @friendships = Friendship.all
 
     if @user.daily_rhythms.count > 0
 
@@ -66,22 +65,6 @@ skip_before_filter :authenticate_user!, only: [:index, :new, :create]
       nil  
     end
   end
-
-  # def ics_summary(date)
-  #   @user = User.find(params[:id])
-
-  #   if @user.daily_rhythms.where("date=? and period=?", date, true).any?
-  #     "on period"
-  #   end
-  # end
-
-  # def ics_summary2(date)
-  #   @user = User.find(params[:id])
-
-  #   if @user.fertile_window?(date) == "in window"
-  #     "fertilex"
-  #   end
-  # end
 
   def download_ical
      @user = User.find(params[:id])   
