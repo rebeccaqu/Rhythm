@@ -1,0 +1,129 @@
+h1 {
+    text-align: center;
+    margin-left: 30px;
+    color: #444;
+    font: 50px proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+  }
+
+div.container {
+	font-family: proxima-nova, sans-serif;
+
+	div.aysha-pic {
+		background-image: image-url('aysha-profile.jpg');
+		height: 242px;
+		width: 250px;
+		border-radius: 130px;
+		margin-top: 100px;
+		margin-left: 100px;
+		display: inline-block;
+	}
+
+		.aysha-pic:hover {
+			background-image: image-url('aysha-funny.jpg');
+		}
+
+	div.aysha{
+		text-align: left;
+		display: inline-block;
+		text-decoration: none;
+		list-style-type: none;
+
+
+		h3 {
+				color: #444;
+		      font: proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+		      padding: 0;
+		      margin: 0;
+
+		}
+
+		li {
+			
+			color: #444;
+		      font: 14px proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+		      padding: 0;
+		      margin: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: #444;
+		      font: 14px proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+		      padding: 0;
+		      margin: 0;
+
+		}
+	}
+
+
+	div.rebecca-pic{
+		background-image: image-url('rebecca-profile.jpg');
+		height: 242px;
+		width: 250px;
+		border-radius: 130px;
+		margin-top: 100px;
+		margin-left: 100px;
+		display: inline-block;
+	}
+		.rebecca-pic:hover{
+			background-image: image-url('rebecca-funny.jpg');
+		}
+
+	div.rebecca {
+		text-align: left;
+		display: inline-block;
+		text-decoration: none;
+		list-style-type: none;
+
+		h3 {
+				color: #444;
+		      font: proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+
+		}
+
+		li {
+				color: #444;
+		      font: 14px proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+
+		}
+
+		a {
+			text-decoration: none;
+				color: #444;
+		      font: 14px proxima-nova, sans-serif;
+		      font-style: normal;
+		      font-weight: 500;
+		      line-height: 55px;
+
+		      text-decoration: none;
+		}
+	}
+}

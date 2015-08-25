@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'about/index'
+
   resources :records
   root :to => 'home#index'
 
   resources :home, only: [:index]
+
+  resources :about, only: [:index]
 
 
   devise_for :physicians, controllers: {registrations: "physicians/registrations", sessions: 'physicians/sessions'}
